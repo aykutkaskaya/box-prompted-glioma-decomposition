@@ -56,8 +56,26 @@ def _companion_count(path: Path) -> int:
 
 
 def main() -> None:
-    path = Path(sys.argv[1] if len(sys.argv) > 1
-                else DRIVE_ROOT / "manuscript_en_mdpi.docx")
+    """Check every built document, or the one named on the command line.
+
+    The default used to be the manuscript alone. The supplement carries its
+    own tables and figures and is the file a renumbering touches, so a round
+    that moved four of its captions was checked only against the document it
+    had not changed.
+    """
+    if len(sys.argv) > 1:
+        raise SystemExit(check_one(Path(sys.argv[1])))
+    worst = 0
+    for name in ("manuscript_en_mdpi.docx", "supplementary_en.docx"):
+        p = DRIVE_ROOT / name
+        if not p.exists():
+            continue
+        print(f"\n{'=' * 60}\n{name}\n{'=' * 60}")
+        worst = max(worst, check_one(p))
+    raise SystemExit(worst)
+
+
+def check_one(path: Path) -> int:
     doc = Document(str(path))
     items = list(body_items(doc))
     problems: list[str] = []
@@ -249,21 +267,62 @@ def main() -> None:
         stext = io.open(supp, encoding="utf-8").read()
         have_sec = set(re.findall(r"(?m)^#{2,3}\s+(\d+(?:\.\d+)*)\.?\s", dtext))
         have_sup = set(re.findall(r"(?m)^##\s+(S\d+)\.", stext))
+        have_tab = set(re.findall(r"(?m)^\*\*Table (S\d+)\.", stext))
+        have_fig = set(re.findall(r"(?m)^\*\*Figure (S\d+)\.", stext))
         both = dtext + chr(10) + stext
         dangling = set()
-        for ref in re.findall(r"\u00a7\s?(\d+(?:\.\d+)*)", both):
-            if ref not in have_sec:
-                dangling.add("\u00a7" + ref)
-        # a bare S12 is a supplement section; "Table S12" is handled elsewhere
+        # "§3.1" was the old form and "Section 3.1" is the current one; a
+        # plural — "Sections 3.1 and 3.4", "Sections 2.1-2.3" — names several
+        for m in re.finditer(r"\u00a7\s?(\d+(?:\.\d+)*)"
+                             r"|\bSections?\s+(\d+(?:\.\d+)*"
+                             r"(?:\s*(?:,|and|\u2013|-)\s*\d+(?:\.\d+)*)*)", both):
+            group = m.group(1) or m.group(2)
+            for ref in re.findall(r"\d+(?:\.\d+)*", group):
+                if ref not in have_sec:
+                    dangling.add("Section " + ref)
+        # a bare S12 is a supplement section; its tables and figures are named
         for m in re.finditer(r"(?<!Table )(?<!Figure )\b(S\d+)\b", both):
             if m.group(1) not in have_sup:
                 dangling.add(m.group(1))
+        for kind, have in (("Table", have_tab), ("Figure", have_fig)):
+            for m in re.finditer(rf"\b{kind}s?\s+((?:S\d+)"
+                                 rf"(?:\s*(?:,|and|\u2013|-)\s*S?\d+)*)", both):
+                for ref in re.findall(r"S?\d+", m.group(1)):
+                    ref = ref if ref.startswith("S") else "S" + ref
+                    if ref not in have:
+                        dangling.add(f"{kind} {ref}")
         print(f"\nCROSS-REFERENCES: {len(have_sec)} numbered sections, "
-              f"{len(have_sup)} supplement sections")
+              f"{len(have_sup)} supplement sections, "
+              f"{len(have_tab)} supplement tables, {len(have_fig)} figures")
         if dangling:
             print(f"  pointing at nothing: {sorted(dangling)}   ** check **")
             problems.append(f"cross-references with no target: {sorted(dangling)}")
 
+
+    # ------------------------------------- supplement numbering and pointers
+    # The supplement numbers its own tables and figures, and the docx check
+    # below skips anything with an S in it. Merging two sections moves their
+    # captions, so the order is a property of the source and is checked there.
+    if draft.exists() and supp.exists():
+        for kind in ("Table", "Figure"):
+            seen = [int(m.group(1)) for m in
+                    re.finditer(rf"(?m)^\*\*{kind} S(\d+)\.", stext)]
+            # ascending is not enough: a gap or a repeat is also ascending,
+            # and both are what inserting a table in the middle produces
+            if seen and seen != list(range(1, len(seen) + 1)):
+                out = ", ".join(f"S{n}" for n in seen)
+                print(f"  {kind}s are numbered {out}, not S1..S{len(seen)}"
+                      f"   ** check **")
+                problems.append(
+                    f"supplement {kind.lower()}s are numbered {out}, which is "
+                    f"not S1 to S{len(seen)} in document order")
+        # "(S12, S12;)" is what a merge leaves when two sections collapse
+        for m in re.finditer(r"\bS(\d+)((?:\s*,\s*S\d+)+)", both):
+            group = [m.group(1)] + re.findall(r"S(\d+)", m.group(2))
+            if len(group) != len(set(group)):
+                print(f"  a pointer names the same section twice: "
+                      f"{m.group(0)}   ** check **")
+                problems.append(f"repeated section in one pointer: {m.group(0)}")
 
     # ------------------------------------------------ table and figure order
     # MDPI cites tables and figures in numerical order. A pointer added to an
@@ -320,12 +379,39 @@ def main() -> None:
                     problems.append(f"{key} caption arrived truncated "
                                     f"({got} of {want[key]} words)")
 
+
+    # ------------------------------------------------------------ placeholders
+    # An address that does not exist yet is held open in the highlighted form
+    # the builder understands. Nothing may be submitted while one is still in.
+    for it in items:
+        if not isinstance(it, Paragraph):
+            continue
+        for m in re.finditer(r"\[[^\]]*AYKUT\]", it.text):
+            print(f"  placeholder still in the document: {m.group(0)}"
+                  f"   ** check **")
+            problems.append(f"placeholder not filled in: {m.group(0)}")
+
+    # --------------------------------------------------------- export is fresh
+    # The PDF is exported from Word by hand, so it can fall behind the
+    # document it came from without anything saying so, and the version
+    # that reaches the journal is then not the version that was checked.
+    pdf = path.with_suffix(".pdf")
+    if pdf.exists():
+        behind = path.stat().st_mtime - pdf.stat().st_mtime
+        if behind > 0:
+            mins = int(behind // 60)
+            print(f"  {pdf.name} is {mins} min older than {path.name}"
+                  f"   ** check **")
+            problems.append(f"{pdf.name} predates {path.name} by {mins} "
+                            f"min; re-export it before submitting")
+
     print("\n" + ("-" * 60))
     if problems:
         print(f"{len(problems)} to look at")
         for p in problems:
             print(f"  - {p}")
-        sys.exit(1)
+        return 1
+    return 0
     print("numbering, caption placement and citation order are all consistent")
 
 

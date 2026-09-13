@@ -335,6 +335,13 @@ def convert(md: str, lang: str, authors: bool = True) -> Document:
     sec = doc.sections[0]
     # python-docx defaults to US Letter; the manuscript is A4 and the two
     # documents are submitted together
+    # justified text without hyphenation stretches any line carrying a long
+    # identifier; the manuscript template sets this and the supplement did not
+    el = doc.settings.element
+    if el.find(qn("w:autoHyphenation")) is None:
+        h = OxmlElement("w:autoHyphenation")
+        h.set(qn("w:val"), "true")
+        el.append(h)
     sec.page_width, sec.page_height = Cm(21.0), Cm(29.7)
     sec.top_margin = sec.bottom_margin = Cm(2.5)
     sec.left_margin = sec.right_margin = Cm(2.5)
@@ -559,6 +566,10 @@ def main() -> None:
     authors = any(l.startswith("* ") and "orrespond" in l
                   for l in head.split(chr(10)))
     doc = convert(md, a.lang, authors=authors)
+    cp = doc.core_properties
+    cp.author = "Aykut Kaşkaya; Baha Şen"
+    cp.comments = ""
+    cp.title = "Supplementary Materials"
     out = Path(a.out) if a.out else DRIVE_ROOT / f"manuscript_{a.lang}.docx"
     doc.save(out)
     print(f"{out.name}  ({out.stat().st_size // 1024} KB)")

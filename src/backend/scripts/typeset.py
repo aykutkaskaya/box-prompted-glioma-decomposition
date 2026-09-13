@@ -53,9 +53,28 @@ def minus(s: str) -> str:
     return re.sub(r"(?<=[\w\)\}\]]) - (?=[\(\{\w])", " − ", s)
 
 
+# A test statistic and a sample size take italic; the spacing around "=" is
+# left as written so that a source that already spaces it is not disturbed.
+STAT = re.compile(r"(?<![A-Za-z*])([pn])(\s?=\s?)(?=[0-9])")
+
+
+def statistics(s: str) -> str:
+    """Italicise p and n where they introduce a value."""
+    return STAT.sub(lambda m: "*" + m.group(1) + "*" + m.group(2), s)
+
+
+# "3 221 MiB" is one number; a plain space there is a break opportunity
+THOUSANDS = re.compile(r"(?<=\d) (?=\d{3}\b)")
+
+
+def thousands(s: str) -> str:
+    """Bind a thousands separator to the digits on either side."""
+    return THOUSANDS.sub("\u00a0", s)
+
+
 def inline(s: str) -> str:
     """Everything that applies to a run of ordinary body text."""
-    return units(quotes(cite_dashes(scientific(s))))
+    return thousands(statistics(units(quotes(cite_dashes(scientific(s))))))
 
 
 # the named quantities, plus the parenthesised form math() emits for a sum's

@@ -51,37 +51,37 @@
    "oracle_box": 0.8643,
    "seeds": {
     "42": {
-     "detector_free": 0.8508,
-     "gap": 0.0045,
-     "residual": -0.0135,
-     "wins": 27,
+     "detector_free": 0.9314,
+     "gap": 0.085,
+     "residual": 0.0671,
+     "wins": 38,
      "ci": [
-      -0.0379,
-      0.0388
+      0.0705,
+      0.0987
      ]
     },
     "52": {
-     "detector_free": 0.8787,
-     "gap": 0.0324,
-     "residual": 0.0144,
-     "wins": 32,
+     "detector_free": 0.9374,
+     "gap": 0.0911,
+     "residual": 0.0731,
+     "wins": 38,
      "ci": [
-      -0.0085,
-      0.0617
+      0.0776,
+      0.1052
      ]
     },
     "62": {
-     "detector_free": 0.8696,
-     "gap": 0.0233,
-     "residual": 0.0053,
-     "wins": 30,
+     "detector_free": 0.9353,
+     "gap": 0.0889,
+     "residual": 0.0709,
+     "wins": 38,
      "ci": [
-      -0.0099,
-      0.0506
+      0.0731,
+      0.1043
      ]
     }
    },
-   "gap_spread": 0.0279
+   "gap_spread": 0.0061
   },
   "brats_africa": {
    "n": 95,
@@ -123,10 +123,10 @@
   }
  },
  "africa_over_rhuh": [
-  28.3,
-  3.9,
-  5.4
+  1.5,
+  1.4,
+  1.4
  ],
- "residual_sign_pattern_stable": false,
+ "residual_sign_pattern_stable": true,
  "pipeline_never_ahead": true
 }

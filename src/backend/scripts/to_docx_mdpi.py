@@ -83,6 +83,11 @@ ABBREVIATIONS = [
     ("BraTS", "Brain Tumour Segmentation (benchmark)"),
     ("SAM", "Segment Anything Model"),
     ("RT-DETR", "real-time detection transformer"),
+    ("CI", "confidence interval"),
+    ("RHUH-GBM", "Río Hortega University Hospital Glioblastoma dataset"),
+    ("TCIA", "The Cancer Imaging Archive"),
+    ("RANO", "Response Assessment in Neuro-Oncology"),
+    ("IDH", "isocitrate dehydrogenase"),
 ]
 
 
@@ -146,6 +151,51 @@ def title_case(t: str) -> str:
     return " ".join(out)
 
 
+EVENTS = DRIVE_ROOT / "reports" / "ref_events.json"
+_EVENTS = None
+
+
+def event_location(num: str):
+    """The conference location, where the record carries one."""
+    global _EVENTS
+    if _EVENTS is None:
+        try:
+            _EVENTS = json.loads(io.open(EVENTS, encoding="utf-8").read())
+        except (OSError, ValueError):
+            _EVENTS = {}
+    return (_EVENTS.get(num) or {}).get("location")
+
+
+AUTHORS = DRIVE_ROOT / "reports" / "ref_authors.json"
+_AUTHORS = None
+
+
+def _initials(given: str) -> str:
+    """"Bjoern H." -> "B.H."; "Y.-T." is kept as written."""
+    out = []
+    for part in (given or "").replace(".", " ").split():
+        if "-" in part:
+            out.append("-".join(x[0].upper() + "." for x in part.split("-") if x))
+        else:
+            out.append(part[0].upper() + ".")
+    return "".join(out)
+
+
+def full_authors(num: str) -> str | None:
+    """The reference's author list, all of them up to ten, then et al."""
+    global _AUTHORS
+    if _AUTHORS is None:
+        try:
+            _AUTHORS = json.loads(io.open(AUTHORS, encoding="utf-8").read())
+        except (OSError, ValueError):
+            _AUTHORS = {}
+    names = _AUTHORS.get(num)
+    if not names:
+        return None
+    out = [f"{fam}, {_initials(giv)}" if giv else str(fam) for fam, giv in names[:10]]
+    return "; ".join(out) + ("; et al." if len(names) > 10 else "")
+
+
 def _fix_author(a: str) -> str:
     a = a.strip()
     if a in ("et al", "et al."):
@@ -190,7 +240,9 @@ def convert_reference(entry: str) -> str:
     if not m:
         return entry
     num, rest = m.group("num"), m.group("rest")
-    authors = "; ".join(_fix_author(a) for a in m.group("auth").split(", "))
+    # the stored list where there is one, the draft's own three otherwise
+    authors = full_authors(num) or "; ".join(
+        _fix_author(a) for a in m.group("auth").split(", "))
 
     # the apparatus the draft carries after the venue
     doi = re.search(r"DOI:\s*(10\.\S+?)\.?(?:\s|$)", rest)
@@ -227,6 +279,9 @@ def convert_reference(entry: str) -> str:
     pp = re.search(r"pp\.\s*([\d–—-]+)", tail)
     lead = venue if venue.lower().startswith("proceedings") else "Proceedings of " + venue
     out = num + ". " + authors + " " + title + ". In " + lead
+    where = event_location(num)
+    if where:
+        out += ", " + where
     if year:
         out += ", " + year
     if pp:
@@ -311,6 +366,14 @@ def main() -> None:
     render_references(doc, refs_block)
     stats["ref_unconverted"] = render_references.unconverted
 
+    # the template arrives with its own placeholder title, and Word shows
+    # these in the file's properties and in the exported PDF
+    cp = doc.core_properties
+    cp.title = title
+    cp.author = "; ".join(a["name"] for a in people["authors"])
+    cp.comments = ""
+    cp.category = ""
+    cp.subject = ""
     doc.save(OUT)
     print(f"{OUT.name}  ({OUT.stat().st_size // 1024} KB)")
     print(f"  {stats['tables']} tables, {stats['figures']} figures, "
@@ -443,6 +506,11 @@ def render_body(doc, body: str, stats=None) -> dict:
                 block.append(lines[i])
                 i += 1
             c = doc.add_paragraph()
+            # The 4.6 cm indent this style carries is the template's own: the
+            # figure caption style has it too, and the template applies it to
+            # its full-width table as well. The one-line caption style that
+            # avoids the indent is centred, which set a 187-word caption
+            # centred line by line.
             st = style_or_none(doc, "MDPI41tablecaption")
             if st is not None:
                 c.style = st

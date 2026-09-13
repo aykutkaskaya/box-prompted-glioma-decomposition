@@ -1,0 +1,139 @@
+{
+ "draws": 20000,
+ "seed": 1337,
+ "segmenter": "sam2.1_l",
+ "region": "TC",
+ "within": {
+  "clean/1337": {
+   "n": 24,
+   "mean": 0.093,
+   "ci": [
+    0.0422,
+    0.161
+   ],
+   "excludes_zero": true
+  },
+  "clean/42": {
+   "n": 24,
+   "mean": 0.085,
+   "ci": [
+    0.0429,
+    0.1348
+   ],
+   "excludes_zero": true
+  },
+  "clean/62": {
+   "n": 24,
+   "mean": 0.075,
+   "ci": [
+    0.0321,
+    0.13
+   ],
+   "excludes_zero": true
+  },
+  "rhuh/1337": {
+   "n": 39,
+   "mean": 0.0156,
+   "ci": [
+    0.0002,
+    0.0312
+   ],
+   "excludes_zero": true
+  },
+  "rhuh/42": {
+   "n": 39,
+   "mean": 0.0139,
+   "ci": [
+    0.0001,
+    0.0288
+   ],
+   "excludes_zero": true
+  },
+  "rhuh/62": {
+   "n": 39,
+   "mean": 0.0122,
+   "ci": [
+    -0.0038,
+    0.0297
+   ],
+   "excludes_zero": false
+  },
+  "brats_africa/1337": {
+   "n": 95,
+   "mean": 0.1951,
+   "ci": [
+    0.1421,
+    0.251
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa/42": {
+   "n": 95,
+   "mean": 0.1555,
+   "ci": [
+    0.1087,
+    0.2059
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa/62": {
+   "n": 95,
+   "mean": 0.1373,
+   "ci": [
+    0.0933,
+    0.1853
+   ],
+   "excludes_zero": true
+  }
+ },
+ "between": {
+  "rhuh-clean/1337": {
+   "difference": -0.0774,
+   "ci": [
+    -0.148,
+    -0.0232
+   ],
+   "excludes_zero": true
+  },
+  "rhuh-clean/42": {
+   "difference": -0.0711,
+   "ci": [
+    -0.1229,
+    -0.0263
+   ],
+   "excludes_zero": true
+  },
+  "rhuh-clean/62": {
+   "difference": -0.0628,
+   "ci": [
+    -0.1213,
+    -0.0159
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa-clean/1337": {
+   "difference": 0.1022,
+   "ci": [
+    0.0155,
+    0.1802
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa-clean/42": {
+   "difference": 0.0706,
+   "ci": [
+    0.0029,
+    0.1364
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa-clean/62": {
+   "difference": 0.0623,
+   "ci": [
+    -0.0079,
+    0.1274
+   ],
+   "excludes_zero": false
+  }
+ }
+}

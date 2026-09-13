@@ -1,0 +1,24 @@
+{
+ "segmenter": "sam2.1_l",
+ "cohorts": {
+  "clean": {
+   "n": 24,
+   "median_volume_voxels": 99788.0,
+   "median_area_per_positive_slice": 1530.4
+  },
+  "rhuh": {
+   "n": 39,
+   "median_volume_voxels": 110975,
+   "median_area_per_positive_slice": 1451.5,
+   "volume_ratio_to_held_out": 1.11,
+   "area_ratio_to_held_out": 0.95
+  },
+  "brats_africa": {
+   "n": 95,
+   "median_volume_voxels": 162872,
+   "median_area_per_positive_slice": 2048.6,
+   "volume_ratio_to_held_out": 1.63,
+   "area_ratio_to_held_out": 1.34
+  }
+ }
+}

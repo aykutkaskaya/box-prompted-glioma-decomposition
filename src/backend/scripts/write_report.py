@@ -67,7 +67,7 @@ w = L.append
 
 w(MARK)
 w("")
-w("All numbers below were produced on 2026-08-23 by `demov2/backend/scripts/`; the")
+w("All numbers below were produced on 2026-08-23 by `src/backend/scripts/`; the")
 w("per-patient records are in `reports/validation/`.")
 w("")
 

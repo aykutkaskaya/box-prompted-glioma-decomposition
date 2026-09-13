@@ -1,0 +1,112 @@
+{
+ "segmenter": "sam2.1_l",
+ "conf": 0.25,
+ "stride": 1,
+ "n_slices": 3768,
+ "runs": {
+  "1": {
+   "run_id": 1,
+   "label": "GIoU w3",
+   "group": "baseline",
+   "overall_dice_new": 0.729807,
+   "conditional_dice_new": 0.796153,
+   "detection_rate_pos": 0.932325,
+   "overall_dice_study_sam1": 0.6993585630649555,
+   "elapsed_s": 2416.7
+  },
+  "6": {
+   "run_id": 6,
+   "label": "Alpha-IoU a=3.00 w3",
+   "group": "baseline",
+   "overall_dice_new": 0.740627,
+   "conditional_dice_new": 0.783899,
+   "detection_rate_pos": 0.970807,
+   "overall_dice_study_sam1": 0.7114425561282842,
+   "elapsed_s": 3308.7
+  },
+  "9": {
+   "run_id": 9,
+   "label": "IC-Arb a=0.00 w3",
+   "group": "A_alpha_sweep",
+   "overall_dice_new": 0.733005,
+   "conditional_dice_new": 0.805942,
+   "detection_rate_pos": 0.919321,
+   "overall_dice_study_sam1": 0.6999046287905956,
+   "elapsed_s": 2139.8
+  },
+  "16": {
+   "run_id": 16,
+   "label": "IC-Arb a=0.50 w3",
+   "group": "A_alpha_sweep",
+   "overall_dice_new": 0.737022,
+   "conditional_dice_new": 0.798476,
+   "detection_rate_pos": 0.938163,
+   "overall_dice_study_sam1": 0.7042842399196697,
+   "elapsed_s": 2151.2
+  },
+  "19": {
+   "run_id": 19,
+   "label": "IC-Arb a=0.75 w3",
+   "group": "A_alpha_sweep",
+   "overall_dice_new": 0.741464,
+   "conditional_dice_new": 0.800068,
+   "detection_rate_pos": 0.94586,
+   "overall_dice_study_sam1": 0.7087773651360907,
+   "elapsed_s": 2307.9
+  },
+  "20": {
+   "run_id": 20,
+   "label": "IC-Arb a=1.00 w3",
+   "group": "A_alpha_sweep",
+   "overall_dice_new": 0.736246,
+   "conditional_dice_new": 0.808091,
+   "detection_rate_pos": 0.924098,
+   "overall_dice_study_sam1": 0.7036867556636212,
+   "elapsed_s": 2307.2
+  },
+  "34": {
+   "run_id": 34,
+   "label": "GSL w3",
+   "group": "D_seg_loss",
+   "overall_dice_new": 0.740446,
+   "conditional_dice_new": 0.803109,
+   "detection_rate_pos": 0.92914,
+   "overall_dice_study_sam1": 0.7080668490044771,
+   "elapsed_s": 2260.0
+  },
+  "37": {
+   "run_id": 37,
+   "label": "IC-Arb a=0.50 w3 (fl)",
+   "group": "E_cls_ablation",
+   "overall_dice_new": 0.733443,
+   "conditional_dice_new": 0.80361,
+   "detection_rate_pos": 0.923832,
+   "overall_dice_study_sam1": 0.6999489337528857,
+   "elapsed_s": 2123.4
+  }
+ },
+ "ranking_new": [
+  19,
+  6,
+  34,
+  16,
+  20,
+  37,
+  9,
+  1
+ ],
+ "ranking_study_sam1": [
+  6,
+  19,
+  34,
+  16,
+  20,
+  37,
+  9,
+  1
+ ],
+ "spearman": 0.9762,
+ "ranking_preserved": false,
+ "mean_shift": 0.032074,
+ "note": "Study protocol: conf=0.25, overall Dice over positive test slices with undetected positives scored 0. Only the segmenter differs."
+}

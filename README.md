@@ -1,4 +1,4 @@
-# Separating detector from segmenter loss in box-prompted glioma segmentation under domain shift
+# Diagnosing detector-stage degradation in box-prompted glioma segmentation: a three-arm evaluation across two external cohorts
 
 Analysis code and per-patient results for the manuscript. Everything reported in
 Methods and Results is derived from the files in `reports/` by the scripts in
@@ -29,7 +29,7 @@ because scripts that train or re-run inference will ask for it.
 | BraTS-Africa imaging | TCIA, BraTS 2023 release |
 | SAM 1 and SAM 2.1 checkpoints | the Segment Anything repositories |
 | MedSAM3 base checkpoint and LoRA adapters | the adapter project |
-| trained RT-DETR detector weights | not distributed; Appendix A.1 gives the configuration |
+| trained RT-DETR detector weights | not distributed; Table S11 of the Supplementary Materials gives the configuration |
 
 Set these when a script needs them:
 
@@ -94,7 +94,7 @@ clone runs without editing paths.
 `SEED_REPLICATES.md` records the four changes made to it to produce the seed
 replicates without overwriting the original runs. The results in the paper are
 reproducible from the released per-patient files without retraining, and the
-detector configuration is given in Appendix A.1 of the article.
+detector configuration is given in Table S11 of the article's Supplementary Materials.
 
 ## Related repository
 

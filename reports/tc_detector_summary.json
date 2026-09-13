@@ -1162,27 +1162,27 @@
             "pipeline": 0.8740567692307692,
             "pipeline_median": 0.87771,
             "oracle": 0.8901389230769234,
-            "direct": 0.6569235897435898,
+            "direct": 0.7539896666666667,
             "localisation_gap": 0.016082153846153847,
-            "segmentation_gap": -0.23321533333333327,
-            "total_gap": -0.2171331794871795,
-            "retained": 0.9310416102736777,
+            "segmentation_gap": -0.1361492564102564,
+            "total_gap": -0.12006710256410258,
+            "retained": 0.8818785040022984,
             "mean_boxes": 40.205128205128204,
             "patients_with_no_box": [],
             "patients_near_zero": [],
             "patients_below_half": 0,
             "pipeline_vs_direct": {
               "mean_a": 0.8740567692307692,
-              "mean_b": 0.6569235897435898,
-              "delta": -0.2171331794871795,
-              "median_delta": -0.13573599999999997,
+              "mean_b": 0.7539896666666667,
+              "delta": -0.12006710256410258,
+              "median_delta": -0.09320499999999998,
               "ci95": [
-                -0.28352749166666674,
-                -0.15465618397435907
+                -0.17083449871794876,
+                -0.07230033846153847
               ],
-              "p_wilcoxon": 2.546585164964199e-11,
+              "p_wilcoxon": 8.16120154922828e-06,
               "n": 39,
-              "n_better": 2
+              "n_better": 8
             },
             "pipeline_vs_oracle": {
               "mean_a": 0.8740567692307692,
@@ -1201,235 +1201,235 @@
               "RHUH_0001": {
                 "pipeline": 0.894468,
                 "oracle": 0.893076,
-                "direct": 0.847107,
+                "direct": 0.954031,
                 "n_boxes": 46
               },
               "RHUH_0002": {
                 "pipeline": 0.842229,
                 "oracle": 0.90783,
-                "direct": 0.146164,
+                "direct": 0.186843,
                 "n_boxes": 15
               },
               "RHUH_0003": {
                 "pipeline": 0.928736,
                 "oracle": 0.929477,
-                "direct": 0.793,
+                "direct": 0.904339,
                 "n_boxes": 43
               },
               "RHUH_0004": {
                 "pipeline": 0.924741,
                 "oracle": 0.927814,
-                "direct": 0.449032,
+                "direct": 0.58809,
                 "n_boxes": 30
               },
               "RHUH_0005": {
                 "pipeline": 0.863981,
                 "oracle": 0.878426,
-                "direct": 0.70881,
+                "direct": 0.73055,
                 "n_boxes": 33
               },
               "RHUH_0006": {
                 "pipeline": 0.956186,
                 "oracle": 0.956423,
-                "direct": 0.873829,
+                "direct": 0.926154,
                 "n_boxes": 46
               },
               "RHUH_0007": {
                 "pipeline": 0.913626,
                 "oracle": 0.916211,
-                "direct": 0.732047,
+                "direct": 0.847027,
                 "n_boxes": 49
               },
               "RHUH_0008": {
                 "pipeline": 0.817659,
                 "oracle": 0.813358,
-                "direct": 0.558623,
+                "direct": 0.719179,
                 "n_boxes": 40
               },
               "RHUH_0009": {
                 "pipeline": 0.871763,
                 "oracle": 0.871378,
-                "direct": 0.799181,
+                "direct": 0.778558,
                 "n_boxes": 50
               },
               "RHUH_0010": {
                 "pipeline": 0.97274,
                 "oracle": 0.974498,
-                "direct": 0.480438,
+                "direct": 0.76244,
                 "n_boxes": 29
               },
               "RHUH_0011": {
                 "pipeline": 0.920167,
                 "oracle": 0.921833,
-                "direct": 0.866658,
+                "direct": 0.88829,
                 "n_boxes": 50
               },
               "RHUH_0012": {
                 "pipeline": 0.948521,
                 "oracle": 0.950056,
-                "direct": 0.56428,
+                "direct": 0.55814,
                 "n_boxes": 40
               },
               "RHUH_0013": {
                 "pipeline": 0.801013,
                 "oracle": 0.841321,
-                "direct": 0.771931,
+                "direct": 0.881327,
                 "n_boxes": 64
               },
               "RHUH_0014": {
                 "pipeline": 0.891322,
                 "oracle": 0.862584,
-                "direct": 0.668284,
+                "direct": 0.81147,
                 "n_boxes": 37
               },
               "RHUH_0015": {
                 "pipeline": 0.901332,
                 "oracle": 0.8787,
-                "direct": 0.712006,
+                "direct": 0.777966,
                 "n_boxes": 45
               },
               "RHUH_0016": {
                 "pipeline": 0.866319,
                 "oracle": 0.895981,
-                "direct": 0.894782,
+                "direct": 0.931932,
                 "n_boxes": 50
               },
               "RHUH_0017": {
                 "pipeline": 0.862565,
                 "oracle": 0.928089,
-                "direct": 0.343428,
+                "direct": 0.521532,
                 "n_boxes": 22
               },
               "RHUH_0018": {
                 "pipeline": 0.682547,
                 "oracle": 0.807467,
-                "direct": 0.6422,
+                "direct": 0.630323,
                 "n_boxes": 30
               },
               "RHUH_0019": {
                 "pipeline": 0.928681,
                 "oracle": 0.931744,
-                "direct": 0.519259,
+                "direct": 0.525747,
                 "n_boxes": 38
               },
               "RHUH_0020": {
                 "pipeline": 0.857697,
                 "oracle": 0.944228,
-                "direct": 0.831166,
+                "direct": 0.89022,
                 "n_boxes": 56
               },
               "RHUH_0021": {
                 "pipeline": 0.799449,
                 "oracle": 0.823506,
-                "direct": 0.429761,
+                "direct": 0.554197,
                 "n_boxes": 31
               },
               "RHUH_0022": {
                 "pipeline": 0.903626,
                 "oracle": 0.902779,
-                "direct": 0.018687,
+                "direct": 0.796508,
                 "n_boxes": 41
               },
               "RHUH_0023": {
                 "pipeline": 0.783638,
                 "oracle": 0.782996,
-                "direct": 0.740552,
+                "direct": 0.813436,
                 "n_boxes": 51
               },
               "RHUH_0024": {
                 "pipeline": 0.664745,
                 "oracle": 0.658326,
-                "direct": 0.536564,
+                "direct": 0.754727,
                 "n_boxes": 37
               },
               "RHUH_0025": {
                 "pipeline": 0.875611,
                 "oracle": 0.884589,
-                "direct": 0.792275,
+                "direct": 0.763538,
                 "n_boxes": 22
               },
               "RHUH_0026": {
                 "pipeline": 0.948593,
                 "oracle": 0.956586,
-                "direct": 0.604073,
+                "direct": 0.644767,
                 "n_boxes": 30
               },
               "RHUH_0027": {
                 "pipeline": 0.87771,
                 "oracle": 0.889723,
-                "direct": 0.773218,
+                "direct": 0.85009,
                 "n_boxes": 51
               },
               "RHUH_0029": {
                 "pipeline": 0.926872,
                 "oracle": 0.929904,
-                "direct": 0.815687,
+                "direct": 0.891115,
                 "n_boxes": 47
               },
               "RHUH_0030": {
                 "pipeline": 0.823769,
                 "oracle": 0.843881,
-                "direct": 0.790931,
+                "direct": 0.807242,
                 "n_boxes": 47
               },
               "RHUH_0031": {
                 "pipeline": 0.840162,
                 "oracle": 0.840202,
-                "direct": 0.797699,
+                "direct": 0.86875,
                 "n_boxes": 37
               },
               "RHUH_0032": {
                 "pipeline": 0.869426,
                 "oracle": 0.86322,
-                "direct": 0.808848,
+                "direct": 0.935777,
                 "n_boxes": 58
               },
               "RHUH_0033": {
                 "pipeline": 0.863946,
                 "oracle": 0.862269,
-                "direct": 0.435221,
+                "direct": 0.722006,
                 "n_boxes": 29
               },
               "RHUH_0034": {
                 "pipeline": 0.774653,
                 "oracle": 0.952965,
-                "direct": 0.790748,
+                "direct": 0.716974,
                 "n_boxes": 49
               },
               "RHUH_0035": {
                 "pipeline": 0.926355,
                 "oracle": 0.923,
-                "direct": 0.781257,
+                "direct": 0.815016,
                 "n_boxes": 42
               },
               "RHUH_0036": {
                 "pipeline": 0.876391,
                 "oracle": 0.849353,
-                "direct": 0.620016,
+                "direct": 0.647163,
                 "n_boxes": 34
               },
               "RHUH_0037": {
                 "pipeline": 0.919551,
                 "oracle": 0.940944,
-                "direct": 0.665176,
+                "direct": 0.800727,
                 "n_boxes": 23
               },
               "RHUH_0038": {
                 "pipeline": 0.931844,
                 "oracle": 0.929661,
-                "direct": 0.80037,
+                "direct": 0.829829,
                 "n_boxes": 43
               },
               "RHUH_0039": {
                 "pipeline": 0.899146,
                 "oracle": 0.905827,
-                "direct": 0.774828,
+                "direct": 0.81725,
                 "n_boxes": 54
               },
               "RHUH_0040": {
                 "pipeline": 0.936434,
                 "oracle": 0.945193,
-                "direct": 0.441884,
+                "direct": 0.562327,
                 "n_boxes": 29
               }
             }
@@ -1439,27 +1439,27 @@
             "pipeline": 0.8918128461538462,
             "pipeline_median": 0.91469,
             "oracle": 0.9073793333333333,
-            "direct": 0.6569235897435898,
+            "direct": 0.7539896666666667,
             "localisation_gap": 0.015566487179487165,
-            "segmentation_gap": -0.2504557435897436,
-            "total_gap": -0.23488925641025646,
-            "retained": 0.9378473539621208,
+            "segmentation_gap": -0.15338966666666662,
+            "total_gap": -0.13782317948717948,
+            "retained": 0.8985167155143838,
             "mean_boxes": 40.205128205128204,
             "patients_with_no_box": [],
             "patients_near_zero": [],
             "patients_below_half": 0,
             "pipeline_vs_direct": {
               "mean_a": 0.8918128461538462,
-              "mean_b": 0.6569235897435898,
-              "delta": -0.23488925641025646,
-              "median_delta": -0.15969200000000006,
+              "mean_b": 0.7539896666666667,
+              "delta": -0.13782317948717948,
+              "median_delta": -0.10471200000000003,
               "ci95": [
-                -0.2990076006410255,
-                -0.1743375987179487
+                -0.18343505705128205,
+                -0.09417455384615385
               ],
-              "p_wilcoxon": 2.546585164964199e-11,
+              "p_wilcoxon": 5.3809344535693526e-08,
               "n": 39,
-              "n_better": 2
+              "n_better": 6
             },
             "pipeline_vs_oracle": {
               "mean_a": 0.8918128461538462,
@@ -1478,235 +1478,235 @@
               "RHUH_0001": {
                 "pipeline": 0.95559,
                 "oracle": 0.95612,
-                "direct": 0.847107,
+                "direct": 0.954031,
                 "n_boxes": 46
               },
               "RHUH_0002": {
                 "pipeline": 0.775791,
                 "oracle": 0.881867,
-                "direct": 0.146164,
+                "direct": 0.186843,
                 "n_boxes": 15
               },
               "RHUH_0003": {
                 "pipeline": 0.959295,
                 "oracle": 0.961957,
-                "direct": 0.793,
+                "direct": 0.904339,
                 "n_boxes": 43
               },
               "RHUH_0004": {
                 "pipeline": 0.917864,
                 "oracle": 0.920646,
-                "direct": 0.449032,
+                "direct": 0.58809,
                 "n_boxes": 30
               },
               "RHUH_0005": {
                 "pipeline": 0.917784,
                 "oracle": 0.927171,
-                "direct": 0.70881,
+                "direct": 0.73055,
                 "n_boxes": 33
               },
               "RHUH_0006": {
                 "pipeline": 0.966868,
                 "oracle": 0.965322,
-                "direct": 0.873829,
+                "direct": 0.926154,
                 "n_boxes": 46
               },
               "RHUH_0007": {
                 "pipeline": 0.920458,
                 "oracle": 0.929455,
-                "direct": 0.732047,
+                "direct": 0.847027,
                 "n_boxes": 49
               },
               "RHUH_0008": {
                 "pipeline": 0.916101,
                 "oracle": 0.919062,
-                "direct": 0.558623,
+                "direct": 0.719179,
                 "n_boxes": 40
               },
               "RHUH_0009": {
                 "pipeline": 0.909584,
                 "oracle": 0.897422,
-                "direct": 0.799181,
+                "direct": 0.778558,
                 "n_boxes": 50
               },
               "RHUH_0010": {
                 "pipeline": 0.969013,
                 "oracle": 0.971143,
-                "direct": 0.480438,
+                "direct": 0.76244,
                 "n_boxes": 29
               },
               "RHUH_0011": {
                 "pipeline": 0.934413,
                 "oracle": 0.932993,
-                "direct": 0.866658,
+                "direct": 0.88829,
                 "n_boxes": 50
               },
               "RHUH_0012": {
                 "pipeline": 0.958155,
                 "oracle": 0.967085,
-                "direct": 0.56428,
+                "direct": 0.55814,
                 "n_boxes": 40
               },
               "RHUH_0013": {
                 "pipeline": 0.830141,
                 "oracle": 0.879971,
-                "direct": 0.771931,
+                "direct": 0.881327,
                 "n_boxes": 64
               },
               "RHUH_0014": {
                 "pipeline": 0.874546,
                 "oracle": 0.851525,
-                "direct": 0.668284,
+                "direct": 0.81147,
                 "n_boxes": 37
               },
               "RHUH_0015": {
                 "pipeline": 0.859221,
                 "oracle": 0.696824,
-                "direct": 0.712006,
+                "direct": 0.777966,
                 "n_boxes": 45
               },
               "RHUH_0016": {
                 "pipeline": 0.893718,
                 "oracle": 0.9211,
-                "direct": 0.894782,
+                "direct": 0.931932,
                 "n_boxes": 50
               },
               "RHUH_0017": {
                 "pipeline": 0.848557,
                 "oracle": 0.927843,
-                "direct": 0.343428,
+                "direct": 0.521532,
                 "n_boxes": 22
               },
               "RHUH_0018": {
                 "pipeline": 0.735035,
                 "oracle": 0.822398,
-                "direct": 0.6422,
+                "direct": 0.630323,
                 "n_boxes": 30
               },
               "RHUH_0019": {
                 "pipeline": 0.899037,
                 "oracle": 0.902138,
-                "direct": 0.519259,
+                "direct": 0.525747,
                 "n_boxes": 38
               },
               "RHUH_0020": {
                 "pipeline": 0.833383,
                 "oracle": 0.919064,
-                "direct": 0.831166,
+                "direct": 0.89022,
                 "n_boxes": 56
               },
               "RHUH_0021": {
                 "pipeline": 0.820335,
                 "oracle": 0.832414,
-                "direct": 0.429761,
+                "direct": 0.554197,
                 "n_boxes": 31
               },
               "RHUH_0022": {
                 "pipeline": 0.937218,
                 "oracle": 0.938143,
-                "direct": 0.018687,
+                "direct": 0.796508,
                 "n_boxes": 41
               },
               "RHUH_0023": {
                 "pipeline": 0.820902,
                 "oracle": 0.825503,
-                "direct": 0.740552,
+                "direct": 0.813436,
                 "n_boxes": 51
               },
               "RHUH_0024": {
                 "pipeline": 0.741623,
                 "oracle": 0.723064,
-                "direct": 0.536564,
+                "direct": 0.754727,
                 "n_boxes": 37
               },
               "RHUH_0025": {
                 "pipeline": 0.936757,
                 "oracle": 0.948892,
-                "direct": 0.792275,
+                "direct": 0.763538,
                 "n_boxes": 22
               },
               "RHUH_0026": {
                 "pipeline": 0.955227,
                 "oracle": 0.965221,
-                "direct": 0.604073,
+                "direct": 0.644767,
                 "n_boxes": 30
               },
               "RHUH_0027": {
                 "pipeline": 0.906226,
                 "oracle": 0.919044,
-                "direct": 0.773218,
+                "direct": 0.85009,
                 "n_boxes": 51
               },
               "RHUH_0029": {
                 "pipeline": 0.943115,
                 "oracle": 0.951507,
-                "direct": 0.815687,
+                "direct": 0.891115,
                 "n_boxes": 47
               },
               "RHUH_0030": {
                 "pipeline": 0.825025,
                 "oracle": 0.863395,
-                "direct": 0.790931,
+                "direct": 0.807242,
                 "n_boxes": 47
               },
               "RHUH_0031": {
                 "pipeline": 0.861106,
                 "oracle": 0.855187,
-                "direct": 0.797699,
+                "direct": 0.86875,
                 "n_boxes": 37
               },
               "RHUH_0032": {
                 "pipeline": 0.902654,
                 "oracle": 0.900913,
-                "direct": 0.808848,
+                "direct": 0.935777,
                 "n_boxes": 58
               },
               "RHUH_0033": {
                 "pipeline": 0.917307,
                 "oracle": 0.914488,
-                "direct": 0.435221,
+                "direct": 0.722006,
                 "n_boxes": 29
               },
               "RHUH_0034": {
                 "pipeline": 0.780393,
                 "oracle": 0.969944,
-                "direct": 0.790748,
+                "direct": 0.716974,
                 "n_boxes": 49
               },
               "RHUH_0035": {
                 "pipeline": 0.940949,
                 "oracle": 0.9422,
-                "direct": 0.781257,
+                "direct": 0.815016,
                 "n_boxes": 42
               },
               "RHUH_0036": {
                 "pipeline": 0.876117,
                 "oracle": 0.911153,
-                "direct": 0.620016,
+                "direct": 0.647163,
                 "n_boxes": 34
               },
               "RHUH_0037": {
                 "pipeline": 0.939193,
                 "oracle": 0.958318,
-                "direct": 0.665176,
+                "direct": 0.800727,
                 "n_boxes": 23
               },
               "RHUH_0038": {
                 "pipeline": 0.948566,
                 "oracle": 0.93781,
-                "direct": 0.80037,
+                "direct": 0.829829,
                 "n_boxes": 43
               },
               "RHUH_0039": {
                 "pipeline": 0.91469,
                 "oracle": 0.925347,
-                "direct": 0.774828,
+                "direct": 0.81725,
                 "n_boxes": 54
               },
               "RHUH_0040": {
                 "pipeline": 0.938744,
                 "oracle": 0.954145,
-                "direct": 0.441884,
+                "direct": 0.562327,
                 "n_boxes": 29
               }
             }
@@ -1718,27 +1718,27 @@
             "pipeline": 0.8794028461538462,
             "pipeline_median": 0.897249,
             "oracle": 0.8901389230769234,
-            "direct": 0.6569235897435898,
+            "direct": 0.7539896666666667,
             "localisation_gap": 0.010736076923076933,
-            "segmentation_gap": -0.23321533333333327,
-            "total_gap": -0.22247925641025637,
-            "retained": 0.9539649611814667,
+            "segmentation_gap": -0.1361492564102564,
+            "total_gap": -0.12541317948717948,
+            "retained": 0.9211447994197902,
             "mean_boxes": 40.1025641025641,
             "patients_with_no_box": [],
             "patients_near_zero": [],
             "patients_below_half": 0,
             "pipeline_vs_direct": {
               "mean_a": 0.8794028461538462,
-              "mean_b": 0.6569235897435898,
-              "delta": -0.22247925641025637,
-              "median_delta": -0.14556599999999997,
+              "mean_b": 0.7539896666666667,
+              "delta": -0.12541317948717948,
+              "median_delta": -0.10155599999999998,
               "ci95": [
-                -0.28793162435897435,
-                -0.16115712499999998
+                -0.17568281858974358,
+                -0.07779261858974358
               ],
-              "p_wilcoxon": 3.637978807091713e-11,
+              "p_wilcoxon": 3.670036676339805e-06,
               "n": 39,
-              "n_better": 1
+              "n_better": 7
             },
             "pipeline_vs_oracle": {
               "mean_a": 0.8794028461538462,
@@ -1757,235 +1757,235 @@
               "RHUH_0001": {
                 "pipeline": 0.897249,
                 "oracle": 0.893076,
-                "direct": 0.847107,
+                "direct": 0.954031,
                 "n_boxes": 47
               },
               "RHUH_0002": {
                 "pipeline": 0.811399,
                 "oracle": 0.90783,
-                "direct": 0.146164,
+                "direct": 0.186843,
                 "n_boxes": 19
               },
               "RHUH_0003": {
                 "pipeline": 0.931745,
                 "oracle": 0.929477,
-                "direct": 0.793,
+                "direct": 0.904339,
                 "n_boxes": 44
               },
               "RHUH_0004": {
                 "pipeline": 0.910588,
                 "oracle": 0.927814,
-                "direct": 0.449032,
+                "direct": 0.58809,
                 "n_boxes": 27
               },
               "RHUH_0005": {
                 "pipeline": 0.877109,
                 "oracle": 0.878426,
-                "direct": 0.70881,
+                "direct": 0.73055,
                 "n_boxes": 36
               },
               "RHUH_0006": {
                 "pipeline": 0.956514,
                 "oracle": 0.956423,
-                "direct": 0.873829,
+                "direct": 0.926154,
                 "n_boxes": 46
               },
               "RHUH_0007": {
                 "pipeline": 0.907368,
                 "oracle": 0.916211,
-                "direct": 0.732047,
+                "direct": 0.847027,
                 "n_boxes": 49
               },
               "RHUH_0008": {
                 "pipeline": 0.820735,
                 "oracle": 0.813358,
-                "direct": 0.558623,
+                "direct": 0.719179,
                 "n_boxes": 40
               },
               "RHUH_0009": {
                 "pipeline": 0.873133,
                 "oracle": 0.871378,
-                "direct": 0.799181,
+                "direct": 0.778558,
                 "n_boxes": 51
               },
               "RHUH_0010": {
                 "pipeline": 0.969894,
                 "oracle": 0.974498,
-                "direct": 0.480438,
+                "direct": 0.76244,
                 "n_boxes": 28
               },
               "RHUH_0011": {
                 "pipeline": 0.922755,
                 "oracle": 0.921833,
-                "direct": 0.866658,
+                "direct": 0.88829,
                 "n_boxes": 49
               },
               "RHUH_0012": {
                 "pipeline": 0.950832,
                 "oracle": 0.950056,
-                "direct": 0.56428,
+                "direct": 0.55814,
                 "n_boxes": 41
               },
               "RHUH_0013": {
                 "pipeline": 0.804562,
                 "oracle": 0.841321,
-                "direct": 0.771931,
+                "direct": 0.881327,
                 "n_boxes": 62
               },
               "RHUH_0014": {
                 "pipeline": 0.900295,
                 "oracle": 0.862584,
-                "direct": 0.668284,
+                "direct": 0.81147,
                 "n_boxes": 40
               },
               "RHUH_0015": {
                 "pipeline": 0.88735,
                 "oracle": 0.8787,
-                "direct": 0.712006,
+                "direct": 0.777966,
                 "n_boxes": 46
               },
               "RHUH_0016": {
                 "pipeline": 0.849895,
                 "oracle": 0.895981,
-                "direct": 0.894782,
+                "direct": 0.931932,
                 "n_boxes": 48
               },
               "RHUH_0017": {
                 "pipeline": 0.923077,
                 "oracle": 0.928089,
-                "direct": 0.343428,
+                "direct": 0.521532,
                 "n_boxes": 27
               },
               "RHUH_0018": {
                 "pipeline": 0.792388,
                 "oracle": 0.807467,
-                "direct": 0.6422,
+                "direct": 0.630323,
                 "n_boxes": 26
               },
               "RHUH_0019": {
                 "pipeline": 0.930947,
                 "oracle": 0.931744,
-                "direct": 0.519259,
+                "direct": 0.525747,
                 "n_boxes": 37
               },
               "RHUH_0020": {
                 "pipeline": 0.918549,
                 "oracle": 0.944228,
-                "direct": 0.831166,
+                "direct": 0.89022,
                 "n_boxes": 53
               },
               "RHUH_0021": {
                 "pipeline": 0.780938,
                 "oracle": 0.823506,
-                "direct": 0.429761,
+                "direct": 0.554197,
                 "n_boxes": 27
               },
               "RHUH_0022": {
                 "pipeline": 0.900344,
                 "oracle": 0.902779,
-                "direct": 0.018687,
+                "direct": 0.796508,
                 "n_boxes": 43
               },
               "RHUH_0023": {
                 "pipeline": 0.788254,
                 "oracle": 0.782996,
-                "direct": 0.740552,
+                "direct": 0.813436,
                 "n_boxes": 49
               },
               "RHUH_0024": {
                 "pipeline": 0.642732,
                 "oracle": 0.658326,
-                "direct": 0.536564,
+                "direct": 0.754727,
                 "n_boxes": 39
               },
               "RHUH_0025": {
                 "pipeline": 0.875285,
                 "oracle": 0.884589,
-                "direct": 0.792275,
+                "direct": 0.763538,
                 "n_boxes": 21
               },
               "RHUH_0026": {
                 "pipeline": 0.953893,
                 "oracle": 0.956586,
-                "direct": 0.604073,
+                "direct": 0.644767,
                 "n_boxes": 33
               },
               "RHUH_0027": {
                 "pipeline": 0.880062,
                 "oracle": 0.889723,
-                "direct": 0.773218,
+                "direct": 0.85009,
                 "n_boxes": 48
               },
               "RHUH_0029": {
                 "pipeline": 0.930032,
                 "oracle": 0.929904,
-                "direct": 0.815687,
+                "direct": 0.891115,
                 "n_boxes": 48
               },
               "RHUH_0030": {
                 "pipeline": 0.825916,
                 "oracle": 0.843881,
-                "direct": 0.790931,
+                "direct": 0.807242,
                 "n_boxes": 45
               },
               "RHUH_0031": {
                 "pipeline": 0.836373,
                 "oracle": 0.840202,
-                "direct": 0.797699,
+                "direct": 0.86875,
                 "n_boxes": 38
               },
               "RHUH_0032": {
                 "pipeline": 0.869957,
                 "oracle": 0.86322,
-                "direct": 0.808848,
+                "direct": 0.935777,
                 "n_boxes": 58
               },
               "RHUH_0033": {
                 "pipeline": 0.862124,
                 "oracle": 0.862269,
-                "direct": 0.435221,
+                "direct": 0.722006,
                 "n_boxes": 29
               },
               "RHUH_0034": {
                 "pipeline": 0.80097,
                 "oracle": 0.952965,
-                "direct": 0.790748,
+                "direct": 0.716974,
                 "n_boxes": 43
               },
               "RHUH_0035": {
                 "pipeline": 0.926823,
                 "oracle": 0.923,
-                "direct": 0.781257,
+                "direct": 0.815016,
                 "n_boxes": 44
               },
               "RHUH_0036": {
                 "pipeline": 0.889294,
                 "oracle": 0.849353,
-                "direct": 0.620016,
+                "direct": 0.647163,
                 "n_boxes": 34
               },
               "RHUH_0037": {
                 "pipeline": 0.928662,
                 "oracle": 0.940944,
-                "direct": 0.665176,
+                "direct": 0.800727,
                 "n_boxes": 21
               },
               "RHUH_0038": {
                 "pipeline": 0.931484,
                 "oracle": 0.929661,
-                "direct": 0.80037,
+                "direct": 0.829829,
                 "n_boxes": 44
               },
               "RHUH_0039": {
                 "pipeline": 0.899672,
                 "oracle": 0.905827,
-                "direct": 0.774828,
+                "direct": 0.81725,
                 "n_boxes": 54
               },
               "RHUH_0040": {
                 "pipeline": 0.937512,
                 "oracle": 0.945193,
-                "direct": 0.441884,
+                "direct": 0.562327,
                 "n_boxes": 30
               }
             }
@@ -1995,27 +1995,27 @@
             "pipeline": 0.8934551025641025,
             "pipeline_median": 0.913267,
             "oracle": 0.9073793333333333,
-            "direct": 0.6569235897435898,
+            "direct": 0.7539896666666667,
             "localisation_gap": 0.013924230769230755,
-            "segmentation_gap": -0.2504557435897436,
-            "total_gap": -0.23653151282051285,
-            "retained": 0.9444044262285347,
+            "segmentation_gap": -0.15338966666666662,
+            "total_gap": -0.1394654358974359,
+            "retained": 0.9092231499564457,
             "mean_boxes": 40.1025641025641,
             "patients_with_no_box": [],
             "patients_near_zero": [],
             "patients_below_half": 0,
             "pipeline_vs_direct": {
               "mean_a": 0.8934551025641025,
-              "mean_b": 0.6569235897435898,
-              "delta": -0.23653151282051285,
-              "median_delta": -0.16225100000000003,
+              "mean_b": 0.7539896666666667,
+              "delta": -0.1394654358974359,
+              "median_delta": -0.11201299999999992,
               "ci95": [
-                -0.2988992551282052,
-                -0.17820269743589742
+                -0.18371262692307697,
+                -0.09657979423076922
               ],
-              "p_wilcoxon": 7.275957614183426e-12,
+              "p_wilcoxon": 6.122354534454644e-08,
               "n": 39,
-              "n_better": 1
+              "n_better": 4
             },
             "pipeline_vs_oracle": {
               "mean_a": 0.8934551025641025,
@@ -2034,235 +2034,235 @@
               "RHUH_0001": {
                 "pipeline": 0.955702,
                 "oracle": 0.95612,
-                "direct": 0.847107,
+                "direct": 0.954031,
                 "n_boxes": 47
               },
               "RHUH_0002": {
                 "pipeline": 0.702569,
                 "oracle": 0.881867,
-                "direct": 0.146164,
+                "direct": 0.186843,
                 "n_boxes": 19
               },
               "RHUH_0003": {
                 "pipeline": 0.956375,
                 "oracle": 0.961957,
-                "direct": 0.793,
+                "direct": 0.904339,
                 "n_boxes": 44
               },
               "RHUH_0004": {
                 "pipeline": 0.901118,
                 "oracle": 0.920646,
-                "direct": 0.449032,
+                "direct": 0.58809,
                 "n_boxes": 27
               },
               "RHUH_0005": {
                 "pipeline": 0.92685,
                 "oracle": 0.927171,
-                "direct": 0.70881,
+                "direct": 0.73055,
                 "n_boxes": 36
               },
               "RHUH_0006": {
                 "pipeline": 0.966416,
                 "oracle": 0.965322,
-                "direct": 0.873829,
+                "direct": 0.926154,
                 "n_boxes": 46
               },
               "RHUH_0007": {
                 "pipeline": 0.913267,
                 "oracle": 0.929455,
-                "direct": 0.732047,
+                "direct": 0.847027,
                 "n_boxes": 49
               },
               "RHUH_0008": {
                 "pipeline": 0.917583,
                 "oracle": 0.919062,
-                "direct": 0.558623,
+                "direct": 0.719179,
                 "n_boxes": 40
               },
               "RHUH_0009": {
                 "pipeline": 0.911008,
                 "oracle": 0.897422,
-                "direct": 0.799181,
+                "direct": 0.778558,
                 "n_boxes": 51
               },
               "RHUH_0010": {
                 "pipeline": 0.964153,
                 "oracle": 0.971143,
-                "direct": 0.480438,
+                "direct": 0.76244,
                 "n_boxes": 28
               },
               "RHUH_0011": {
                 "pipeline": 0.936284,
                 "oracle": 0.932993,
-                "direct": 0.866658,
+                "direct": 0.88829,
                 "n_boxes": 49
               },
               "RHUH_0012": {
                 "pipeline": 0.961604,
                 "oracle": 0.967085,
-                "direct": 0.56428,
+                "direct": 0.55814,
                 "n_boxes": 41
               },
               "RHUH_0013": {
                 "pipeline": 0.836697,
                 "oracle": 0.879971,
-                "direct": 0.771931,
+                "direct": 0.881327,
                 "n_boxes": 62
               },
               "RHUH_0014": {
                 "pipeline": 0.90968,
                 "oracle": 0.851525,
-                "direct": 0.668284,
+                "direct": 0.81147,
                 "n_boxes": 40
               },
               "RHUH_0015": {
                 "pipeline": 0.818679,
                 "oracle": 0.696824,
-                "direct": 0.712006,
+                "direct": 0.777966,
                 "n_boxes": 46
               },
               "RHUH_0016": {
                 "pipeline": 0.874369,
                 "oracle": 0.9211,
-                "direct": 0.894782,
+                "direct": 0.931932,
                 "n_boxes": 48
               },
               "RHUH_0017": {
                 "pipeline": 0.916019,
                 "oracle": 0.927843,
-                "direct": 0.343428,
+                "direct": 0.521532,
                 "n_boxes": 27
               },
               "RHUH_0018": {
                 "pipeline": 0.805648,
                 "oracle": 0.822398,
-                "direct": 0.6422,
+                "direct": 0.630323,
                 "n_boxes": 26
               },
               "RHUH_0019": {
                 "pipeline": 0.908428,
                 "oracle": 0.902138,
-                "direct": 0.519259,
+                "direct": 0.525747,
                 "n_boxes": 37
               },
               "RHUH_0020": {
                 "pipeline": 0.891267,
                 "oracle": 0.919064,
-                "direct": 0.831166,
+                "direct": 0.89022,
                 "n_boxes": 53
               },
               "RHUH_0021": {
                 "pipeline": 0.801034,
                 "oracle": 0.832414,
-                "direct": 0.429761,
+                "direct": 0.554197,
                 "n_boxes": 27
               },
               "RHUH_0022": {
                 "pipeline": 0.933375,
                 "oracle": 0.938143,
-                "direct": 0.018687,
+                "direct": 0.796508,
                 "n_boxes": 43
               },
               "RHUH_0023": {
                 "pipeline": 0.819195,
                 "oracle": 0.825503,
-                "direct": 0.740552,
+                "direct": 0.813436,
                 "n_boxes": 49
               },
               "RHUH_0024": {
                 "pipeline": 0.687549,
                 "oracle": 0.723064,
-                "direct": 0.536564,
+                "direct": 0.754727,
                 "n_boxes": 39
               },
               "RHUH_0025": {
                 "pipeline": 0.938643,
                 "oracle": 0.948892,
-                "direct": 0.792275,
+                "direct": 0.763538,
                 "n_boxes": 21
               },
               "RHUH_0026": {
                 "pipeline": 0.958617,
                 "oracle": 0.965221,
-                "direct": 0.604073,
+                "direct": 0.644767,
                 "n_boxes": 33
               },
               "RHUH_0027": {
                 "pipeline": 0.906855,
                 "oracle": 0.919044,
-                "direct": 0.773218,
+                "direct": 0.85009,
                 "n_boxes": 48
               },
               "RHUH_0029": {
                 "pipeline": 0.943607,
                 "oracle": 0.951507,
-                "direct": 0.815687,
+                "direct": 0.891115,
                 "n_boxes": 48
               },
               "RHUH_0030": {
                 "pipeline": 0.832276,
                 "oracle": 0.863395,
-                "direct": 0.790931,
+                "direct": 0.807242,
                 "n_boxes": 45
               },
               "RHUH_0031": {
                 "pipeline": 0.871848,
                 "oracle": 0.855187,
-                "direct": 0.797699,
+                "direct": 0.86875,
                 "n_boxes": 38
               },
               "RHUH_0032": {
                 "pipeline": 0.901383,
                 "oracle": 0.900913,
-                "direct": 0.808848,
+                "direct": 0.935777,
                 "n_boxes": 58
               },
               "RHUH_0033": {
                 "pipeline": 0.916582,
                 "oracle": 0.914488,
-                "direct": 0.435221,
+                "direct": 0.722006,
                 "n_boxes": 29
               },
               "RHUH_0034": {
                 "pipeline": 0.813482,
                 "oracle": 0.969944,
-                "direct": 0.790748,
+                "direct": 0.716974,
                 "n_boxes": 43
               },
               "RHUH_0035": {
                 "pipeline": 0.943508,
                 "oracle": 0.9422,
-                "direct": 0.781257,
+                "direct": 0.815016,
                 "n_boxes": 44
               },
               "RHUH_0036": {
                 "pipeline": 0.870722,
                 "oracle": 0.911153,
-                "direct": 0.620016,
+                "direct": 0.647163,
                 "n_boxes": 34
               },
               "RHUH_0037": {
                 "pipeline": 0.947131,
                 "oracle": 0.958318,
-                "direct": 0.665176,
+                "direct": 0.800727,
                 "n_boxes": 21
               },
               "RHUH_0038": {
                 "pipeline": 0.941842,
                 "oracle": 0.93781,
-                "direct": 0.80037,
+                "direct": 0.829829,
                 "n_boxes": 44
               },
               "RHUH_0039": {
                 "pipeline": 0.913577,
                 "oracle": 0.925347,
-                "direct": 0.774828,
+                "direct": 0.81725,
                 "n_boxes": 54
               },
               "RHUH_0040": {
                 "pipeline": 0.929807,
                 "oracle": 0.954145,
-                "direct": 0.441884,
+                "direct": 0.562327,
                 "n_boxes": 30
               }
             }
@@ -2274,27 +2274,27 @@
             "pipeline": 0.8777857435897436,
             "pipeline_median": 0.89038,
             "oracle": 0.8901389230769234,
-            "direct": 0.6569235897435898,
+            "direct": 0.7539896666666667,
             "localisation_gap": 0.012353179487179494,
-            "segmentation_gap": -0.23321533333333327,
-            "total_gap": -0.22086215384615385,
-            "retained": 0.9470310150253993,
+            "segmentation_gap": -0.1361492564102564,
+            "total_gap": -0.12379607692307694,
+            "retained": 0.9092673745499118,
             "mean_boxes": 40.8974358974359,
             "patients_with_no_box": [],
             "patients_near_zero": [],
             "patients_below_half": 0,
             "pipeline_vs_direct": {
               "mean_a": 0.8777857435897436,
-              "mean_b": 0.6569235897435898,
-              "delta": -0.22086215384615385,
-              "median_delta": -0.14127100000000004,
+              "mean_b": 0.7539896666666667,
+              "delta": -0.12379607692307694,
+              "median_delta": -0.09675299999999998,
               "ci95": [
-                -0.28744957820512823,
-                -0.15855876602564103
+                -0.17502589807692306,
+                -0.0747406442307692
               ],
-              "p_wilcoxon": 3.637978807091713e-11,
+              "p_wilcoxon": 1.4690511306980625e-05,
               "n": 39,
-              "n_better": 2
+              "n_better": 8
             },
             "pipeline_vs_oracle": {
               "mean_a": 0.8777857435897436,
@@ -2313,235 +2313,235 @@
               "RHUH_0001": {
                 "pipeline": 0.894341,
                 "oracle": 0.893076,
-                "direct": 0.847107,
+                "direct": 0.954031,
                 "n_boxes": 49
               },
               "RHUH_0002": {
                 "pipeline": 0.827275,
                 "oracle": 0.90783,
-                "direct": 0.146164,
+                "direct": 0.186843,
                 "n_boxes": 18
               },
               "RHUH_0003": {
                 "pipeline": 0.929706,
                 "oracle": 0.929477,
-                "direct": 0.793,
+                "direct": 0.904339,
                 "n_boxes": 44
               },
               "RHUH_0004": {
                 "pipeline": 0.919019,
                 "oracle": 0.927814,
-                "direct": 0.449032,
+                "direct": 0.58809,
                 "n_boxes": 30
               },
               "RHUH_0005": {
                 "pipeline": 0.871408,
                 "oracle": 0.878426,
-                "direct": 0.70881,
+                "direct": 0.73055,
                 "n_boxes": 36
               },
               "RHUH_0006": {
                 "pipeline": 0.955908,
                 "oracle": 0.956423,
-                "direct": 0.873829,
+                "direct": 0.926154,
                 "n_boxes": 47
               },
               "RHUH_0007": {
                 "pipeline": 0.914955,
                 "oracle": 0.916211,
-                "direct": 0.732047,
+                "direct": 0.847027,
                 "n_boxes": 48
               },
               "RHUH_0008": {
                 "pipeline": 0.815932,
                 "oracle": 0.813358,
-                "direct": 0.558623,
+                "direct": 0.719179,
                 "n_boxes": 42
               },
               "RHUH_0009": {
                 "pipeline": 0.862434,
                 "oracle": 0.871378,
-                "direct": 0.799181,
+                "direct": 0.778558,
                 "n_boxes": 50
               },
               "RHUH_0010": {
                 "pipeline": 0.972283,
                 "oracle": 0.974498,
-                "direct": 0.480438,
+                "direct": 0.76244,
                 "n_boxes": 29
               },
               "RHUH_0011": {
                 "pipeline": 0.922206,
                 "oracle": 0.921833,
-                "direct": 0.866658,
+                "direct": 0.88829,
                 "n_boxes": 51
               },
               "RHUH_0012": {
                 "pipeline": 0.943699,
                 "oracle": 0.950056,
-                "direct": 0.56428,
+                "direct": 0.55814,
                 "n_boxes": 42
               },
               "RHUH_0013": {
                 "pipeline": 0.820686,
                 "oracle": 0.841321,
-                "direct": 0.771931,
+                "direct": 0.881327,
                 "n_boxes": 57
               },
               "RHUH_0014": {
                 "pipeline": 0.89038,
                 "oracle": 0.862584,
-                "direct": 0.668284,
+                "direct": 0.81147,
                 "n_boxes": 38
               },
               "RHUH_0015": {
                 "pipeline": 0.90383,
                 "oracle": 0.8787,
-                "direct": 0.712006,
+                "direct": 0.777966,
                 "n_boxes": 46
               },
               "RHUH_0016": {
                 "pipeline": 0.863421,
                 "oracle": 0.895981,
-                "direct": 0.894782,
+                "direct": 0.931932,
                 "n_boxes": 49
               },
               "RHUH_0017": {
                 "pipeline": 0.928112,
                 "oracle": 0.928089,
-                "direct": 0.343428,
+                "direct": 0.521532,
                 "n_boxes": 28
               },
               "RHUH_0018": {
                 "pipeline": 0.802218,
                 "oracle": 0.807467,
-                "direct": 0.6422,
+                "direct": 0.630323,
                 "n_boxes": 28
               },
               "RHUH_0019": {
                 "pipeline": 0.92641,
                 "oracle": 0.931744,
-                "direct": 0.519259,
+                "direct": 0.525747,
                 "n_boxes": 36
               },
               "RHUH_0020": {
                 "pipeline": 0.855579,
                 "oracle": 0.944228,
-                "direct": 0.831166,
+                "direct": 0.89022,
                 "n_boxes": 58
               },
               "RHUH_0021": {
                 "pipeline": 0.83171,
                 "oracle": 0.823506,
-                "direct": 0.429761,
+                "direct": 0.554197,
                 "n_boxes": 27
               },
               "RHUH_0022": {
                 "pipeline": 0.904367,
                 "oracle": 0.902779,
-                "direct": 0.018687,
+                "direct": 0.796508,
                 "n_boxes": 43
               },
               "RHUH_0023": {
                 "pipeline": 0.773076,
                 "oracle": 0.782996,
-                "direct": 0.740552,
+                "direct": 0.813436,
                 "n_boxes": 53
               },
               "RHUH_0024": {
                 "pipeline": 0.633388,
                 "oracle": 0.658326,
-                "direct": 0.536564,
+                "direct": 0.754727,
                 "n_boxes": 40
               },
               "RHUH_0025": {
                 "pipeline": 0.878026,
                 "oracle": 0.884589,
-                "direct": 0.792275,
+                "direct": 0.763538,
                 "n_boxes": 22
               },
               "RHUH_0026": {
                 "pipeline": 0.955427,
                 "oracle": 0.956586,
-                "direct": 0.604073,
+                "direct": 0.644767,
                 "n_boxes": 32
               },
               "RHUH_0027": {
                 "pipeline": 0.880379,
                 "oracle": 0.889723,
-                "direct": 0.773218,
+                "direct": 0.85009,
                 "n_boxes": 49
               },
               "RHUH_0029": {
                 "pipeline": 0.920799,
                 "oracle": 0.929904,
-                "direct": 0.815687,
+                "direct": 0.891115,
                 "n_boxes": 51
               },
               "RHUH_0030": {
                 "pipeline": 0.842934,
                 "oracle": 0.843881,
-                "direct": 0.790931,
+                "direct": 0.807242,
                 "n_boxes": 47
               },
               "RHUH_0031": {
                 "pipeline": 0.827171,
                 "oracle": 0.840202,
-                "direct": 0.797699,
+                "direct": 0.86875,
                 "n_boxes": 38
               },
               "RHUH_0032": {
                 "pipeline": 0.865808,
                 "oracle": 0.86322,
-                "direct": 0.808848,
+                "direct": 0.935777,
                 "n_boxes": 57
               },
               "RHUH_0033": {
                 "pipeline": 0.860091,
                 "oracle": 0.862269,
-                "direct": 0.435221,
+                "direct": 0.722006,
                 "n_boxes": 29
               },
               "RHUH_0034": {
                 "pipeline": 0.7684,
                 "oracle": 0.952965,
-                "direct": 0.790748,
+                "direct": 0.716974,
                 "n_boxes": 47
               },
               "RHUH_0035": {
                 "pipeline": 0.922528,
                 "oracle": 0.923,
-                "direct": 0.781257,
+                "direct": 0.815016,
                 "n_boxes": 42
               },
               "RHUH_0036": {
                 "pipeline": 0.857907,
                 "oracle": 0.849353,
-                "direct": 0.620016,
+                "direct": 0.647163,
                 "n_boxes": 35
               },
               "RHUH_0037": {
                 "pipeline": 0.930965,
                 "oracle": 0.940944,
-                "direct": 0.665176,
+                "direct": 0.800727,
                 "n_boxes": 27
               },
               "RHUH_0038": {
                 "pipeline": 0.929929,
                 "oracle": 0.929661,
-                "direct": 0.80037,
+                "direct": 0.829829,
                 "n_boxes": 45
               },
               "RHUH_0039": {
                 "pipeline": 0.893693,
                 "oracle": 0.905827,
-                "direct": 0.774828,
+                "direct": 0.81725,
                 "n_boxes": 55
               },
               "RHUH_0040": {
                 "pipeline": 0.937244,
                 "oracle": 0.945193,
-                "direct": 0.441884,
+                "direct": 0.562327,
                 "n_boxes": 30
               }
             }
@@ -2551,27 +2551,27 @@
             "pipeline": 0.8951542051282052,
             "pipeline_median": 0.912083,
             "oracle": 0.9073793333333333,
-            "direct": 0.6569235897435898,
+            "direct": 0.7539896666666667,
             "localisation_gap": 0.01222512820512819,
-            "segmentation_gap": -0.2504557435897436,
-            "total_gap": -0.23823061538461537,
-            "retained": 0.9511884693482879,
+            "segmentation_gap": -0.15338966666666662,
+            "total_gap": -0.14116453846153848,
+            "retained": 0.9203001840293797,
             "mean_boxes": 40.8974358974359,
             "patients_with_no_box": [],
             "patients_near_zero": [],
             "patients_below_half": 0,
             "pipeline_vs_direct": {
               "mean_a": 0.8951542051282052,
-              "mean_b": 0.6569235897435898,
-              "delta": -0.23823061538461537,
-              "median_delta": -0.1622119999999999,
+              "mean_b": 0.7539896666666667,
+              "delta": -0.14116453846153848,
+              "median_delta": -0.11276399999999998,
               "ci95": [
-                -0.3012648923076923,
-                -0.17862945192307697
+                -0.18569380705128202,
+                -0.09761245641025645
               ],
-              "p_wilcoxon": 3.637978807091713e-11,
+              "p_wilcoxon": 4.138928488828242e-08,
               "n": 39,
-              "n_better": 2
+              "n_better": 5
             },
             "pipeline_vs_oracle": {
               "mean_a": 0.8951542051282052,
@@ -2590,235 +2590,235 @@
               "RHUH_0001": {
                 "pipeline": 0.956164,
                 "oracle": 0.95612,
-                "direct": 0.847107,
+                "direct": 0.954031,
                 "n_boxes": 49
               },
               "RHUH_0002": {
                 "pipeline": 0.688839,
                 "oracle": 0.881867,
-                "direct": 0.146164,
+                "direct": 0.186843,
                 "n_boxes": 18
               },
               "RHUH_0003": {
                 "pipeline": 0.96026,
                 "oracle": 0.961957,
-                "direct": 0.793,
+                "direct": 0.904339,
                 "n_boxes": 44
               },
               "RHUH_0004": {
                 "pipeline": 0.912283,
                 "oracle": 0.920646,
-                "direct": 0.449032,
+                "direct": 0.58809,
                 "n_boxes": 30
               },
               "RHUH_0005": {
                 "pipeline": 0.92504,
                 "oracle": 0.927171,
-                "direct": 0.70881,
+                "direct": 0.73055,
                 "n_boxes": 36
               },
               "RHUH_0006": {
                 "pipeline": 0.965804,
                 "oracle": 0.965322,
-                "direct": 0.873829,
+                "direct": 0.926154,
                 "n_boxes": 47
               },
               "RHUH_0007": {
                 "pipeline": 0.920734,
                 "oracle": 0.929455,
-                "direct": 0.732047,
+                "direct": 0.847027,
                 "n_boxes": 48
               },
               "RHUH_0008": {
                 "pipeline": 0.912778,
                 "oracle": 0.919062,
-                "direct": 0.558623,
+                "direct": 0.719179,
                 "n_boxes": 42
               },
               "RHUH_0009": {
                 "pipeline": 0.899275,
                 "oracle": 0.897422,
-                "direct": 0.799181,
+                "direct": 0.778558,
                 "n_boxes": 50
               },
               "RHUH_0010": {
                 "pipeline": 0.969958,
                 "oracle": 0.971143,
-                "direct": 0.480438,
+                "direct": 0.76244,
                 "n_boxes": 29
               },
               "RHUH_0011": {
                 "pipeline": 0.935844,
                 "oracle": 0.932993,
-                "direct": 0.866658,
+                "direct": 0.88829,
                 "n_boxes": 51
               },
               "RHUH_0012": {
                 "pipeline": 0.95248,
                 "oracle": 0.967085,
-                "direct": 0.56428,
+                "direct": 0.55814,
                 "n_boxes": 42
               },
               "RHUH_0013": {
                 "pipeline": 0.850319,
                 "oracle": 0.879971,
-                "direct": 0.771931,
+                "direct": 0.881327,
                 "n_boxes": 57
               },
               "RHUH_0014": {
                 "pipeline": 0.885789,
                 "oracle": 0.851525,
-                "direct": 0.668284,
+                "direct": 0.81147,
                 "n_boxes": 38
               },
               "RHUH_0015": {
                 "pipeline": 0.861984,
                 "oracle": 0.696824,
-                "direct": 0.712006,
+                "direct": 0.777966,
                 "n_boxes": 46
               },
               "RHUH_0016": {
                 "pipeline": 0.896781,
                 "oracle": 0.9211,
-                "direct": 0.894782,
+                "direct": 0.931932,
                 "n_boxes": 49
               },
               "RHUH_0017": {
                 "pipeline": 0.919841,
                 "oracle": 0.927843,
-                "direct": 0.343428,
+                "direct": 0.521532,
                 "n_boxes": 28
               },
               "RHUH_0018": {
                 "pipeline": 0.819389,
                 "oracle": 0.822398,
-                "direct": 0.6422,
+                "direct": 0.630323,
                 "n_boxes": 28
               },
               "RHUH_0019": {
                 "pipeline": 0.900643,
                 "oracle": 0.902138,
-                "direct": 0.519259,
+                "direct": 0.525747,
                 "n_boxes": 36
               },
               "RHUH_0020": {
                 "pipeline": 0.827872,
                 "oracle": 0.919064,
-                "direct": 0.831166,
+                "direct": 0.89022,
                 "n_boxes": 58
               },
               "RHUH_0021": {
                 "pipeline": 0.831785,
                 "oracle": 0.832414,
-                "direct": 0.429761,
+                "direct": 0.554197,
                 "n_boxes": 27
               },
               "RHUH_0022": {
                 "pipeline": 0.937602,
                 "oracle": 0.938143,
-                "direct": 0.018687,
+                "direct": 0.796508,
                 "n_boxes": 43
               },
               "RHUH_0023": {
                 "pipeline": 0.816152,
                 "oracle": 0.825503,
-                "direct": 0.740552,
+                "direct": 0.813436,
                 "n_boxes": 53
               },
               "RHUH_0024": {
                 "pipeline": 0.698776,
                 "oracle": 0.723064,
-                "direct": 0.536564,
+                "direct": 0.754727,
                 "n_boxes": 40
               },
               "RHUH_0025": {
                 "pipeline": 0.942492,
                 "oracle": 0.948892,
-                "direct": 0.792275,
+                "direct": 0.763538,
                 "n_boxes": 22
               },
               "RHUH_0026": {
                 "pipeline": 0.963852,
                 "oracle": 0.965221,
-                "direct": 0.604073,
+                "direct": 0.644767,
                 "n_boxes": 32
               },
               "RHUH_0027": {
                 "pipeline": 0.909135,
                 "oracle": 0.919044,
-                "direct": 0.773218,
+                "direct": 0.85009,
                 "n_boxes": 49
               },
               "RHUH_0029": {
                 "pipeline": 0.944454,
                 "oracle": 0.951507,
-                "direct": 0.815687,
+                "direct": 0.891115,
                 "n_boxes": 51
               },
               "RHUH_0030": {
                 "pipeline": 0.856079,
                 "oracle": 0.863395,
-                "direct": 0.790931,
+                "direct": 0.807242,
                 "n_boxes": 47
               },
               "RHUH_0031": {
                 "pipeline": 0.875024,
                 "oracle": 0.855187,
-                "direct": 0.797699,
+                "direct": 0.86875,
                 "n_boxes": 38
               },
               "RHUH_0032": {
                 "pipeline": 0.901034,
                 "oracle": 0.900913,
-                "direct": 0.808848,
+                "direct": 0.935777,
                 "n_boxes": 57
               },
               "RHUH_0033": {
                 "pipeline": 0.911387,
                 "oracle": 0.914488,
-                "direct": 0.435221,
+                "direct": 0.722006,
                 "n_boxes": 29
               },
               "RHUH_0034": {
                 "pipeline": 0.774969,
                 "oracle": 0.969944,
-                "direct": 0.790748,
+                "direct": 0.716974,
                 "n_boxes": 47
               },
               "RHUH_0035": {
                 "pipeline": 0.943185,
                 "oracle": 0.9422,
-                "direct": 0.781257,
+                "direct": 0.815016,
                 "n_boxes": 42
               },
               "RHUH_0036": {
                 "pipeline": 0.908872,
                 "oracle": 0.911153,
-                "direct": 0.620016,
+                "direct": 0.647163,
                 "n_boxes": 35
               },
               "RHUH_0037": {
                 "pipeline": 0.941755,
                 "oracle": 0.958318,
-                "direct": 0.665176,
+                "direct": 0.800727,
                 "n_boxes": 27
               },
               "RHUH_0038": {
                 "pipeline": 0.942593,
                 "oracle": 0.93781,
-                "direct": 0.80037,
+                "direct": 0.829829,
                 "n_boxes": 45
               },
               "RHUH_0039": {
                 "pipeline": 0.912083,
                 "oracle": 0.925347,
-                "direct": 0.774828,
+                "direct": 0.81725,
                 "n_boxes": 55
               },
               "RHUH_0040": {
                 "pipeline": 0.937708,
                 "oracle": 0.954145,
-                "direct": 0.441884,
+                "direct": 0.562327,
                 "n_boxes": 30
               }
             }
@@ -2827,21 +2827,21 @@
       },
       "detector_free_seeds": {
         "42": {
-          "WT": 0.8508323076923077,
-          "TC": 0.6569235897435898,
-          "ET": 0.5753753076923076,
+          "WT": 0.9313877435897436,
+          "TC": 0.7539896666666667,
+          "ET": 0.7254537948717947,
           "n": 39
         },
         "52": {
-          "WT": 0.8787402820512821,
-          "TC": 0.6451334102564102,
-          "ET": 0.7282010512820513,
+          "WT": 0.9374168974358974,
+          "TC": 0.7500626923076924,
+          "ET": 0.8367925897435898,
           "n": 39
         },
         "62": {
-          "WT": 0.8696031794871795,
-          "TC": 0.6816472051282052,
-          "ET": 0.6137384102564104,
+          "WT": 0.9352582564102562,
+          "TC": 0.7761487435897435,
+          "ET": 0.7304776410256411,
           "n": 39
         }
       }

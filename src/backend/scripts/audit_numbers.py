@@ -67,6 +67,30 @@ def read(p: Path) -> dict:
     return out
 
 
+def interval_count(draft: str, supp: str) -> int:
+    """Distinct confidence intervals in the prose, under Section 2.5's rule.
+
+    A bracketed pair of signed decimals or percentages is an interval; a
+    citation bracket holds bare integers and does not match. Bounds are
+    compared at three decimals so that a lower-precision restatement of an
+    interval -- the abstract quotes several -- counts once with its source.
+    """
+    body = (draft.split("## References")[0] + chr(10)
+            + supp.split("## References")[0]).replace(chr(160), " ")
+    # a bound may be a whole percentage: S6's ratio interval reads
+    # "[68%, 93%]", which a decimal-only pattern does not see
+    pat = re.compile(r"\[([+\u2212-]?\d+(?:\.\d+)?%?),\s*([+\u2212-]?\d+(?:\.\d+)?%?)\]")
+    seen = set()
+    for lo, hi in pat.findall(body):
+        # "[10, 11]" is a citation, not an interval; an interval carries a
+        # decimal point or a percent sign on at least one of its bounds
+        if not any(c in lo + hi for c in ".%"):
+            continue
+        f = lambda x: round(float(x.replace("\u2212", "-").rstrip("%")), 3)
+        seen.add((f(lo), f(hi)))
+    return len(seen)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     # Both documents are checked against the same recomputed values, so
@@ -103,6 +127,19 @@ def main() -> None:
                                      .replace(chr(8211), "-")
                                      .replace(chr(160), " "))
     text = norm(text)
+    # The reverse direction reads the prose without the bibliographies. Each
+    # document is trimmed on its own: splitting the joined text on the first
+    # reference heading discarded the supplement along with the manuscript's
+    # reference list, leaving that direction blind to half the corpus.
+    def _drop_refs(doc: str) -> str:
+        for head in ("## References", "## Kaynaklar"):
+            doc = doc.split(head)[0]
+        return doc
+
+    _body_parts = [io.open(target, encoding="utf-8").read()] if have_doc else []
+    if a.doc == "paper" and supp.exists():
+        _body_parts.append(supp.read_text(encoding="utf-8"))
+    prose = norm("\n".join(_drop_refs(d) for d in _body_parts))
     checks: list = []
     unverifiable: list = []
     # optional inputs that were not present, so their checks did not run
@@ -147,6 +184,24 @@ def main() -> None:
     # the coverage figures were quoted only by the overlap-loss ablation, which
     # is provenance for the detector rather than a result of this paper and is
     # no longer reported here
+
+    # Run 37 retrained at a second seed, which is what makes the
+    # whole-tumour/tumour-core detection comparison of Section 3.4 seed-paired
+    # rather than a comparison against the ablation's spread.
+    # Only seed 42 retrains run 37; adding 62 put a permanent entry in
+    # `skipped`, and `(loose and not skipped)` then disarmed the
+    # superseded-value gate on every run. The value is read from the per-run
+    # summary rather than the ablation CSV, which the released archive does
+    # not carry -- a reader downloading it could not otherwise re-derive the
+    # one number Section 3.4's seed-paired comparison rests on.
+    for _sd in (42,):
+        _hits = sorted((DRIVE_ROOT / "experiments_repeated" / f"seed_{_sd}")
+                       .glob("run_037_*/summary/run_summary.json"))
+        if not _hits:
+            skipped.append(f"run 37 at seed {_sd}: run summary not present")
+            continue
+        _r = json.loads(_hits[0].read_text(encoding="utf-8"))
+        want(f"run 37 test F1 at seed {_sd}", f"{_r['test']['f1']:.4f}")
 
     # ---------------- whole-tumour three-arm decomposition, from the JSONL
     for c in COHORTS:
@@ -288,7 +343,10 @@ def main() -> None:
                  f"{row['oracle_median_dice_on_missed']:.3f}")
             if row["detector_stage"] > 0.01:      # the share of a term that
                 want(f"{c} missed share",          # small is not worth quoting
-                     f"{row['missed_share'] * 100:.0f}%")
+                     # 12.5% printed as "12%" matched an unrelated
+                     # headroom cell, so the check passed without
+                     # verifying the value it names
+                     f"{row['missed_share'] * 100:.1f}%")
 
     # ------------------------------- intervals on the detector-stage term
     for ci, seg in ((R / "detector_stage_ci.json", "sam2.1_l"),
@@ -305,6 +363,22 @@ def main() -> None:
             c, sd = k.split("/")
             want(f"{seg} {c} contrast, seed {sd}", f"{v['difference']:+.4f}")
             want_ci(f"{seg} {c} contrast CI, seed {sd}", *v["ci"])
+        # the two external cohorts against each other, which the abstract
+        # and Section 3.1 quote and nothing here used to re-derive. The
+        # second segmenter's version of it is computed but not quoted, so
+        # requiring it here would fail the run over an unclaimed value.
+        for k, v in ((w.get("external") or {}) if seg == "sam2.1_l" else {}).items():
+            c, sd = k.split("/")
+            want(f"{seg} {c} contrast, seed {sd}", f"{v['difference']:+.4f}")
+            want_ci(f"{seg} {c} contrast CI, seed {sd}", *v["ci"])
+        # the same contrast with the nine collapses dropped, which Section 3.2
+        # asserts and used to assert without an interval
+        for k, v in ((w.get("no_collapse") or {}) if seg == "sam2.1_l" else {}).items():
+            c, sd = k.split("/")
+            want(f"{c} contrast without collapses, seed {sd}",
+                 f"{v['difference']:+.4f}")
+            want_ci(f"{c} contrast CI without collapses, seed {sd}", *v["ci"])
+            want(f"{c} term without collapses, seed {sd}", f"{v['term']:+.4f}")
 
     # ---------------------------------------------------- boundary metrics
     bs_ = R / "boundary_summary.json"
@@ -375,8 +449,9 @@ def main() -> None:
                 want(f"{c} gap CI low, adapter {sd}", f"{v['ci'][0]:+.4f}")
                 want(f"{c} gap CI high, adapter {sd}", f"{v['ci'][1]:+.4f}")
             want(f"{c} gap spread over adapters", f"{row['gap_spread']:.4f}")
-        for r in w["africa_over_rhuh"]:
-            want("Africa/RHUH ratio", f"{r:.1f}")
+        # S12 says "No ratio between the two external cohorts is reported",
+        # so there is nothing to check. These three ran anyway and passed on
+        # "1.5 T" and "p = 1.4", certifying a claim the paper withdrew.
 
     # ---------------------- the in-domain term on the detector's own test split
     dt = V / "dettest_slices.jsonl"
@@ -606,6 +681,12 @@ def main() -> None:
              str(len(clean & set(lo["validation"]))))
 
     # ------------------------------- the fourth arm
+    try:
+        FOURTH_CI = json.loads(io.open(
+            DRIVE_ROOT / "reports" / "fourth_arm_summary.json",
+            encoding="utf-8").read())
+    except (OSError, ValueError):
+        FOURTH_CI = {}
     # The reference box handed to the detector-free model, which splits the
     # residual into a prompt-type and an architecture component. RHUH-GBM uses
     # the corrected-mask files, so that all three arms there see the same
@@ -651,12 +732,83 @@ def main() -> None:
             # already checks that this arm reproduces it.
             if lab == "residual":
                 continue
-            g = np.random.default_rng(1337)
-            bs = np.sort([g.choice(d, len(d)).mean() for _ in range(20000)])
-            # as one string: two bounds checked apart each match somewhere
-            want_ci(f"fourth arm{tag} {lab} CI",
-                    np.percentile(bs, 2.5), np.percentile(bs, 97.5))
+            # The interval comes from compile_fourth_arm.py, which is what the
+            # paper quotes and what the archive carries. Drawing a second
+            # bootstrap here would compare two correct answers that differ in
+            # the fourth decimal, which is a sequence difference and not a
+            # discrepancy.
+            term = {"prompt type": "prompt", "architecture": "model"}[lab]
+            rec = (FOURTH_CI.get("within", {}) or {}).get(f"{cohort}/{term}")
+            if rec:
+                want_ci(f"fourth arm{tag} {lab} CI", *rec["ci"])
+            else:
+                skipped.append(f"fourth arm{tag} {lab} CI: "
+                               "run compile_fourth_arm.py")
+        # Table 2's residual intervals and Table 3's contrast column come from
+        # the same file and were the twelve values with no released check
+        for term in ("residual", "prompt", "model"):
+            rec = (FOURTH_CI.get("within", {}) or {}).get(f"{cohort}/{term}")
+            if rec and term == "residual":
+                want_ci(f"fourth arm{tag} residual CI", *rec["ci"])
+            btw = (FOURTH_CI.get("between", {}) or {}).get(f"{cohort}-clean/{term}")
+            if btw:
+                want(f"fourth arm{tag} {term} contrast",
+                     f"{btw['difference']:+.4f}")
+                want_ci(f"fourth arm{tag} {term} contrast CI", *btw["ci"])
         assert abs(((q4 - o4) - (q4 - f4)).mean() - (f4 - o4).mean()) < 1e-9,             f"the fourth-arm identity does not close on {cohort}"
+
+    # ------------------------------- how widely each reference is drawn
+    # Section 4.1 names annotation extent as a rival explanation the design
+    # cannot separate from image shift, and quotes two ratios for it.
+    ext = R / "reference_extent.json"
+    if ext.exists():
+        w = json.loads(ext.read_text(encoding="utf-8"))
+        for c_, row in (w.get("cohorts") or {}).items():
+            for field, label in (("volume_ratio_to_held_out", "volume ratio"),
+                                 ("area_ratio_to_held_out", "area ratio")):
+                if field in row:
+                    want(f"{c_} reference {label}", f"{row[field]:.2f}")
+    else:
+        skipped.append("reference extent: run reference_extent.py")
+
+    # ------------------------------- the decomposition on tumour core
+    # Table S14 is the newest claim in the paper and was outside the gate.
+    # tc_detector_summary.json computes the same nine means independently as
+    # `localisation_gap`, so the two are also checked against each other.
+    tcci = R / "tc_detector_stage_ci.json"
+    if tcci.exists():
+        w = json.loads(tcci.read_text(encoding="utf-8"))
+        tcs, SEG_TC = {}, "sam2.1_l"
+        p_ = R / "tc_detector_summary.json"
+        if p_.exists():
+            raw = json.loads(p_.read_text(encoding="utf-8"))
+            # cohorts[c]["seeds"][seed][segmenter]["localisation_gap"]; the
+            # first version of this walked cohorts[c] directly, found the
+            # keys "label", "seeds" and "detector_free_seeds" instead of
+            # seeds, and so compared nothing at all
+            for c_, rows in (raw.get("cohorts") or {}).items():
+                for sd_, row in ((rows or {}).get("seeds") or {}).items():
+                    g = ((row or {}).get(SEG_TC) or {}).get("localisation_gap")
+                    if g is not None:
+                        tcs[f"{c_}/{sd_}"] = g
+            if not tcs:
+                raise SystemExit(
+                    "tc_detector_summary.json carries no localisation_gap "
+                    "under cohorts[c]['seeds'][seed]['" + SEG_TC + "']; the "
+                    "cross-check would pass without comparing anything")
+        for k, v in w["within"].items():
+            want(f"tumour-core term {k}", f"{v['mean']:+.4f}")
+            want_ci(f"tumour-core term CI {k}", *v["ci"])
+            other = tcs.get(k)
+            if other is not None:
+                assert abs(other - v["mean"]) < 5e-4, (
+                    f"the two tumour-core computations disagree on {k}: "
+                    f"{other} against {v['mean']}")
+        for k, v in w["between"].items():
+            want(f"tumour-core contrast {k}", f"{v['difference']:+.4f}")
+            want_ci(f"tumour-core contrast CI {k}", *v["ci"])
+    else:
+        skipped.append("tumour-core decomposition: run tc_detector_stage_ci.py")
 
     # ------------------------------- the slice rule on RHUH-GBM
     # The intensity fault and the slice-selection fault are the same `> 0`
@@ -709,7 +861,7 @@ def main() -> None:
     else:
         print(f"  ({len(per_run)} of 37 per-run metric files; selection bias unchecked)")
 
-    # ------------------------------- weights (Table 13)
+    # ------------------------------- weights (Table S3)
     # The ratios were computed from the table's own printed figures while the
     # column mixed MiB and decimal MB, so all three were wrong. They are now
     # derived from the files.
@@ -903,7 +1055,7 @@ def main() -> None:
         want(f"{lab} volume-term rho", f"{rho:+.3f}")
         want(f"{lab} volume-term p", f"{pv:.3f}")
 
-    # ------------------------------- where the term grows (Table 5)
+    # ------------------------------- where the term grows (Table S6)
     # The detector-stage term is a difference of two arms and either can move
     # it. A referee showed that on RHUH-GBM most of the growth is the oracle
     # arm rising, not the pipeline falling, so both columns are checked here.
@@ -924,7 +1076,7 @@ def main() -> None:
             want(f"{c} {lab} CI low", f"{np.percentile(bs, 2.5):+.4f}")
             want(f"{c} {lab} CI high", f"{np.percentile(bs, 97.5):+.4f}")
 
-    # ------------------------------- inference cost (Table 12)
+    # ------------------------------- inference cost (Table S3)
     # This table was quoted from an unrecorded benchmark session and none of
     # its three rows matched the timings stored with the results. It is now
     # derived from those timings, pooled over all three cohorts, and checked.
@@ -985,7 +1137,7 @@ def main() -> None:
     row = [l for l in excl.splitlines()[1:] if l.startswith(missing[0])]
     assert row and "'seg'" in row[0], f"exclusion reason changed: {row}"
 
-    # ------------------------------- the ten cases drawn in Figure 5
+    # ------------------------------- the ten cases drawn in Figure S1
     box = read(V / "brats_africa_box.jsonl")
     for pid in ("00129", "00180", "00215", "00046"):
         k = f"BraTS_SSA_{pid}_000"
@@ -1018,9 +1170,11 @@ def main() -> None:
     # in the body that no check produced, so a human can see what is unsourced.
     # the Turkish version heads its reference list differently, and a DOI is
     # not a measurement
-    body = text
-    for head in ("## References", "## Kaynaklar"):
-        body = body.split(head)[0]
+    # Splitting the joined text on the first reference heading threw the
+    # supplement away together with the manuscript's bibliography, so this
+    # direction read half the corpus and called the other half clean. Each
+    # document is trimmed on its own and the two are rejoined.
+    body = prose
     for _pat, _rep in ((chr(8722), "-"),):
         body = body.replace(_pat, _rep)
     quoted = set()
@@ -1167,10 +1321,29 @@ def main() -> None:
     # every reader of the released archive. Skipped checks are reported and a
     # loose value one of them would have sourced is still forgiven, but a stale
     # value or a missing recomputed one now fails the run.
+    # Section 2.5 counts the intervals its multiplicity argument covers; every
+    # analysis added since made that number wrong without anything noticing
+    miscount = None
+    try:
+        dtext = io.open(DRIVE_ROOT / "PAPER_DRAFT.md", encoding="utf-8").read()
+        stext = io.open(DRIVE_ROOT / "SUPPLEMENTARY.md", encoding="utf-8").read()
+    except OSError:
+        dtext = stext = ""
+    if dtext and stext:
+        n = interval_count(dtext, stext)
+        m = re.search(r"multiplicity is applied to the (\d+) distinct confidence",
+                      " ".join(dtext.split()))
+        said = int(m.group(1)) if m else None
+        print(f"\nINTERVALS: {n} distinct; Section 2.5 says "
+              f"{said if said is not None else 'nothing'}")
+        if said is not None and said != n:
+            miscount = (said, n)
+            print(f"  Section 2.5 is stale: {said} against {n}   ** check **")
+
     if skipped:
         print(f"  note: {len(skipped)} optional checks were skipped; "
               f"they do not gate this exit code")
-    return 1 if (stale or (loose and not skipped)
+    return 1 if (stale or miscount or (loose and not skipped)
                  or (bad and not abridged)) else 0
 
 

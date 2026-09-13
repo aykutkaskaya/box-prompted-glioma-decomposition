@@ -1,0 +1,139 @@
+{
+ "draws": 20000,
+ "seed": 1337,
+ "segmenter": "sam2.1_l",
+ "adapter_seed": 42,
+ "within": {
+  "clean/residual": {
+   "n": 24,
+   "mean": 0.0517,
+   "ci": [
+    0.0368,
+    0.0671
+   ],
+   "excludes_zero": true
+  },
+  "clean/prompt": {
+   "n": 24,
+   "mean": 0.0184,
+   "ci": [
+    0.012,
+    0.0263
+   ],
+   "excludes_zero": true
+  },
+  "clean/model": {
+   "n": 24,
+   "mean": 0.0701,
+   "ci": [
+    0.0552,
+    0.0861
+   ],
+   "excludes_zero": true
+  },
+  "rhuh/residual": {
+   "n": 39,
+   "mean": 0.0671,
+   "ci": [
+    0.054,
+    0.0794
+   ],
+   "excludes_zero": true
+  },
+  "rhuh/prompt": {
+   "n": 39,
+   "mean": 0.0198,
+   "ci": [
+    0.0123,
+    0.0289
+   ],
+   "excludes_zero": true
+  },
+  "rhuh/model": {
+   "n": 39,
+   "mean": 0.0869,
+   "ci": [
+    0.0754,
+    0.0991
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa/residual": {
+   "n": 95,
+   "mean": 0.0362,
+   "ci": [
+    0.0029,
+    0.0645
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa/prompt": {
+   "n": 95,
+   "mean": 0.0379,
+   "ci": [
+    0.0246,
+    0.0552
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa/model": {
+   "n": 95,
+   "mean": 0.0741,
+   "ci": [
+    0.0519,
+    0.0931
+   ],
+   "excludes_zero": true
+  }
+ },
+ "between": {
+  "rhuh-clean/residual": {
+   "difference": 0.0154,
+   "ci": [
+    -0.0047,
+    0.0348
+   ],
+   "excludes_zero": false
+  },
+  "rhuh-clean/prompt": {
+   "difference": 0.0014,
+   "ci": [
+    -0.0094,
+    0.0125
+   ],
+   "excludes_zero": false
+  },
+  "rhuh-clean/model": {
+   "difference": 0.0168,
+   "ci": [
+    -0.0028,
+    0.0363
+   ],
+   "excludes_zero": false
+  },
+  "brats_africa-clean/residual": {
+   "difference": -0.0155,
+   "ci": [
+    -0.0515,
+    0.0166
+   ],
+   "excludes_zero": false
+  },
+  "brats_africa-clean/prompt": {
+   "difference": 0.0195,
+   "ci": [
+    0.004,
+    0.0387
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa-clean/model": {
+   "difference": 0.004,
+   "ci": [
+    -0.0231,
+    0.0283
+   ],
+   "excludes_zero": false
+  }
+ }
+}

@@ -9,7 +9,7 @@ Two kinds of interval, because the two comparisons are not the same shape.
 
 Within a cohort the two arms see the same patients, so oracle-box minus pipeline
 is a paired difference and the interval is a percentile bootstrap over patients
-of its mean, matching §3.5.
+of its mean, matching Section 2.5.
 
 Between cohorts the patients are different people, so the contrast is a
 difference of two independent means. Each cohort is resampled on its own and
@@ -169,6 +169,49 @@ def main() -> None:
                 "excludes_zero": bool(lo > 0)}
             print(f"{label + ' - held out':<30}{sd:>6}{diff:>+12.4f}"
                   f"   [{lo:+.4f}, {hi:+.4f}]")
+
+    # One external cohort's interval excluding zero while the other's spans it
+    # does not establish that the two differ; that needs its own interval.
+    print("\nexternal minus external, same seed\n")
+    print(f"{'contrast':<30}{'seed':>6}{'difference':>12}{'95% CI':>24}")
+    result["external"] = {}
+    for sd in SEEDS:
+        if ("brats_africa", sd) not in data or ("rhuh", sd) not in data:
+            continue
+        a, b = data[("brats_africa", sd)], data[("rhuh", sd)]
+        diff = float(a.mean() - b.mean())
+        lo, hi = ci(rng, DRAWS, a, b)
+        result["external"][f"africa-rhuh/{sd}"] = {
+            "difference": round(diff, 4), "ci": [round(lo, 4), round(hi, 4)],
+            "excludes_zero": bool(lo > 0 or hi < 0)}
+        print(f"{'BraTS-Africa - RHUH-GBM':<30}{sd:>6}{diff:>+12.4f}"
+              f"   [{lo:+.4f}, {hi:+.4f}]")
+
+    # Section 3.2 asks whether the term is a handful of catastrophic cases.
+    # Dropping them and re-contrasting answers it; the pipeline's own Dice is
+    # the criterion the paper uses for a collapse.
+    print("\ncollapses excluded, same seed\n")
+    print(f"{'contrast':<30}{'seed':>6}{'n':>5}{'difference':>12}{'95% CI':>24}")
+    # The collapse criterion reads the deployed pipeline's Dice, which is
+    # the seed-1337 run; applying it to another seed would drop that seed's
+    # patients by the wrong rule, and Section 3.4 records that the
+    # collapsing patients are not the same across seeds.
+    result["no_collapse"] = {}
+    for sd in SEEDS[:1]:
+        if ("brats_africa", sd) not in data or ("clean", sd) not in data:
+            continue
+        ids, _ = terms("brats_africa", sd)
+        box = read(_fix(V / "brats_africa_box.jsonl"))
+        keep = np.array([box[p][f"pipeline:{SEG}"]["vol_dice"] >= 0.5 for p in ids])
+        a, b = data[("brats_africa", sd)][keep], data[("clean", sd)]
+        diff = float(a.mean() - b.mean())
+        lo, hi = ci(rng, DRAWS, a, b)
+        result["no_collapse"][f"africa-clean/{sd}"] = {
+            "n": int(keep.sum()), "term": round(float(a.mean()), 4),
+            "difference": round(diff, 4), "ci": [round(lo, 4), round(hi, 4)],
+            "excludes_zero": bool(lo > 0)}
+        print(f"{'BraTS-Africa - held out':<30}{sd:>6}{int(keep.sum()):>5}"
+              f"{diff:>+12.4f}   [{lo:+.4f}, {hi:+.4f}]")
 
     all_pos = all(v["excludes_zero"] for v in result["between"].values())
     result["all_contrasts_exclude_zero"] = bool(all_pos)

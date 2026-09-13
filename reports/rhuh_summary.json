@@ -1,4 +1,6 @@
 {
+ "superseded_by": "rhuh_bgfix.json",
+ "note": "Written before the background-mask correction of S9 and kept for the record. Its oracle-box score and its contrasts are the uncorrected ones and disagree with Table 1 and Table 2; the corrected run is primary throughout the paper.",
  "box_file": "rhuh_box.jsonl",
  "direct_file": "rhuh_direct.jsonl",
  "n_patients": 39,

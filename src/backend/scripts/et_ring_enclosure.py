@@ -18,7 +18,7 @@ _HERE = Path(__file__).resolve()
 import sys, os, io
 import numpy as np
 from scipy import ndimage
-B = str(_HERE.parents[1])   # <root>/demov2/backend
+B = str(_HERE.parents[1])   # <root>/src/backend
 sys.path.insert(0, B); sys.path.insert(0, B + "/scripts")
 os.environ.setdefault("YOLO_AUTOINSTALL", "false")
 import full_validation as FV
