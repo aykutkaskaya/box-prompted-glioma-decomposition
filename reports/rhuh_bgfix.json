@@ -1,0 +1,129 @@
+{
+ "seeds": {
+  "42": {
+   "n": 39,
+   "published": 0.8508,
+   "corrected": 0.9314,
+   "rise": [
+    0.0806,
+    0.0485,
+    0.1234
+   ],
+   "gap_published": [
+    0.0045,
+    -0.0383,
+    0.0388
+   ],
+   "gap_corrected": [
+    0.085,
+    0.0706,
+    0.099
+   ],
+   "residual_published": [
+    -0.0135,
+    -0.0618,
+    0.024
+   ],
+   "residual_corrected": [
+    0.0671,
+    0.054,
+    0.0795
+   ]
+  },
+  "52": {
+   "n": 39,
+   "published": 0.8787,
+   "corrected": 0.9374,
+   "rise": [
+    0.0587,
+    0.0327,
+    0.101
+   ],
+   "gap_published": [
+    0.0324,
+    -0.0088,
+    0.0617
+   ],
+   "gap_corrected": [
+    0.0911,
+    0.0773,
+    0.1055
+   ],
+   "residual_published": [
+    0.0144,
+    -0.033,
+    0.0465
+   ],
+   "residual_corrected": [
+    0.0731,
+    0.0623,
+    0.0843
+   ]
+  },
+  "62": {
+   "n": 39,
+   "published": 0.8696,
+   "corrected": 0.9353,
+   "rise": [
+    0.0657,
+    0.0421,
+    0.1005
+   ],
+   "gap_published": [
+    0.0233,
+    -0.0107,
+    0.0503
+   ],
+   "gap_corrected": [
+    0.0889,
+    0.0731,
+    0.1042
+   ],
+   "residual_published": [
+    0.0053,
+    -0.0353,
+    0.0357
+   ],
+   "residual_corrected": [
+    0.0709,
+    0.0574,
+    0.0836
+   ]
+  }
+ },
+ "n": 39,
+ "complete": true,
+ "oracle": 0.8643,
+ "pipeline": 0.8463,
+ "direct_published": 0.8508,
+ "direct_corrected": 0.9314,
+ "corrected_minus_published": [
+  0.0806,
+  0.0485,
+  0.1234
+ ],
+ "total_gap": {
+  "published": [
+   0.0045,
+   -0.0383,
+   0.0388
+  ],
+  "corrected": [
+   0.085,
+   0.0706,
+   0.099
+  ]
+ },
+ "residual": {
+  "published": [
+   -0.0135,
+   -0.0618,
+   0.024
+  ],
+  "corrected": [
+   0.0671,
+   0.054,
+   0.0795
+  ]
+ }
+}

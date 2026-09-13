@@ -1,0 +1,2 @@
+patient_id,dir,reason
+BraTS20_Training_355,/content/brats_raw/BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_355,missing modalities: ['seg']

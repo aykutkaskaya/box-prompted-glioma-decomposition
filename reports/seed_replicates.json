@@ -1,0 +1,261 @@
+{
+ "base_seed": 1337,
+ "noise": {
+  "test.f1": {
+   "mean": 0.018698885615241984,
+   "max": 0.03364701229244793,
+   "n_configs": 6
+  },
+  "test.precision": {
+   "mean": 0.030728715042040517,
+   "max": 0.06127960048244763,
+   "n_configs": 6
+  },
+  "test.recall": {
+   "mean": 0.0069002123142250515,
+   "max": 0.02043524416135878,
+   "n_configs": 6
+  },
+  "test.map50": {
+   "mean": 0.01182862233545364,
+   "max": 0.024481070013079087,
+   "n_configs": 6
+  },
+  "test.map50_95": {
+   "mean": 0.011089002643040543,
+   "max": 0.01830827168931648,
+   "n_configs": 6
+  },
+  "geometry.pred_coverage": {
+   "mean": 0.0060482643604105974,
+   "max": 0.010636248877942567,
+   "n_configs": 6
+  },
+  "geometry.target_coverage": {
+   "mean": 0.004752592394109634,
+   "max": 0.007775207486516167,
+   "n_configs": 6
+  },
+  "geometry.iou": {
+   "mean": 0.005123805257926976,
+   "max": 0.0063814066427460014,
+   "n_configs": 6
+  }
+ },
+ "per_config": {
+  "1": {
+   "slug": "run_001_giou_w30",
+   "seeds": [
+    42,
+    1337
+   ],
+   "test.f1": {
+    "mean": 0.757199126686008,
+    "sd": null,
+    "spread": 0.0004092490959011208,
+    "n": 2
+   },
+   "geometry.pred_coverage": {
+    "mean": 0.9203617177024482,
+    "sd": null,
+    "spread": 0.003069793804168164,
+    "n": 2
+   },
+   "geometry.target_coverage": {
+    "mean": 0.9134089894683486,
+    "sd": null,
+    "spread": 0.007775207486516167,
+    "n": 2
+   }
+  },
+  "4": {
+   "slug": "run_004_eiou_w30",
+   "seeds": [
+    42,
+    1337
+   ],
+   "test.f1": {
+    "mean": 0.7890512143689503,
+    "sd": null,
+    "spread": 0.027286870394111373,
+    "n": 2
+   },
+   "geometry.pred_coverage": {
+    "mean": 0.9217836887242501,
+    "sd": null,
+    "spread": 0.005638364845935717,
+    "n": 2
+   },
+   "geometry.target_coverage": {
+    "mean": 0.9123999701885082,
+    "sd": null,
+    "spread": 0.000172548469644207,
+    "n": 2
+   }
+  },
+  "5": {
+   "slug": "run_005_siou_w30",
+   "seeds": [
+    42,
+    1337
+   ],
+   "test.f1": {
+    "mean": 0.7764774659863947,
+    "sd": null,
+    "spread": 0.027657312925170152,
+    "n": 2
+   },
+   "geometry.pred_coverage": {
+    "mean": 0.9305806607645997,
+    "sd": null,
+    "spread": 0.010084068854130046,
+    "n": 2
+   },
+   "geometry.target_coverage": {
+    "mean": 0.9059843103538949,
+    "sd": null,
+    "spread": 0.005331557778727736,
+    "n": 2
+   }
+  },
+  "9": {
+   "slug": "run_009_icarb_alpha_000_w30",
+   "seeds": [
+    42,
+    62,
+    1337
+   ],
+   "test.f1": {
+    "mean": 0.8040272270432504,
+    "sd": 0.008962500763586146,
+    "spread": 0.016327080330855948,
+    "n": 3
+   },
+   "geometry.pred_coverage": {
+    "mean": 0.9539765367230312,
+    "sd": 0.005544737309003439,
+    "spread": 0.010636248877942567,
+    "n": 3
+   },
+   "geometry.target_coverage": {
+    "mean": 0.8811958719843166,
+    "sd": 0.0017510707658470492,
+    "spread": 0.003077888470956136,
+    "n": 3
+   }
+  },
+  "20": {
+   "slug": "run_020_icarb_alpha_100_w30",
+   "seeds": [
+    42,
+    62,
+    1337
+   ],
+   "test.f1": {
+    "mean": 0.7825381860935746,
+    "sd": 0.017031849923108414,
+    "spread": 0.03364701229244793,
+    "n": 3
+   },
+   "geometry.pred_coverage": {
+    "mean": 0.9262952829020713,
+    "sd": 0.001620363238539015,
+    "spread": 0.003199755552689365,
+    "n": 3
+   },
+   "geometry.target_coverage": {
+    "mean": 0.909361069659211,
+    "sd": 0.0025956370689504747,
+    "spread": 0.004585716911438165,
+    "n": 3
+   }
+  },
+  "37": {
+   "slug": "run_037_icarb_alpha_050_w30_clsfl",
+   "seeds": [
+    42,
+    1337
+   ],
+   "test.f1": {
+    "mean": 0.8150657651909436,
+    "sd": null,
+    "spread": 0.006865788652965388,
+    "n": 2
+   },
+   "geometry.pred_coverage": {
+    "mean": 0.9394543331095004,
+    "sd": null,
+    "spread": 0.003661354227597724,
+    "n": 2
+   },
+   "geometry.target_coverage": {
+    "mean": 0.8981691741168407,
+    "sd": null,
+    "spread": 0.007572635247375392,
+    "n": 2
+   }
+  }
+ },
+ "claims": [
+  {
+   "claim": "alpha controls predicted-box coverage",
+   "metric": "geometry.pred_coverage",
+   "runs": [
+    9,
+    20
+   ],
+   "gap": -0.0277,
+   "mean_a": 0.954,
+   "mean_b": 0.9263,
+   "sd_a": 0.0055,
+   "sd_b": 0.0016,
+   "se_diff": 0.00334,
+   "ratio": 8.3,
+   "direction_agrees": true,
+   "n_seeds": [
+    3,
+    3
+   ]
+  },
+  {
+   "claim": "alpha controls target coverage",
+   "metric": "geometry.target_coverage",
+   "runs": [
+    9,
+    20
+   ],
+   "gap": 0.0282,
+   "mean_a": 0.8812,
+   "mean_b": 0.9094,
+   "sd_a": 0.0018,
+   "sd_b": 0.0026,
+   "se_diff": 0.00181,
+   "ratio": 15.6,
+   "direction_agrees": true,
+   "n_seeds": [
+    3,
+    3
+   ]
+  },
+  {
+   "claim": "IC-Arb beats GIoU",
+   "metric": "test.f1",
+   "runs": [
+    1,
+    9
+   ],
+   "gap": 0.0468,
+   "mean_a": 0.7572,
+   "mean_b": 0.804,
+   "sd_a": 0.0003,
+   "sd_b": 0.009,
+   "se_diff": 0.00518,
+   "ratio": 9.0,
+   "direction_agrees": true,
+   "n_seeds": [
+    2,
+    3
+   ]
+  }
+ ]
+}

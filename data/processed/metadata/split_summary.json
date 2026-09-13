@@ -1,0 +1,14 @@
+{
+  "counts": {
+    "train": 258,
+    "val": 55,
+    "test": 55
+  },
+  "seed": 1337,
+  "ratios": [
+    0.7,
+    0.15,
+    0.15
+  ],
+  "split_hash": "fae05e5d48dfa31e5d867360d602a04c3e4be61055cbe9fe4d2920c7b3970bfc"
+}

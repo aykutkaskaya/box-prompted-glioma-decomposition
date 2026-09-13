@@ -1,0 +1,52 @@
+{
+  "run_id": 14,
+  "slug": "run_014_icarb_alpha_040_w30",
+  "loss": "icarb",
+  "params": {
+    "alpha": 0.4
+  },
+  "overlap_weight": 3.0,
+  "test": {
+    "split": "test",
+    "conf": 0.25,
+    "iou_match": 0.5,
+    "TP": 3045,
+    "FP": 739,
+    "FN": 723,
+    "precision": 0.8047040169133193,
+    "recall": 0.8081210191082803,
+    "f1": 0.8064088983050849,
+    "detection_rate": 0.8081210191082803,
+    "mean_latency_ms": 45.0308332660367,
+    "throughput_fps": 22.20700634367837,
+    "n_images": 5622,
+    "conf_dist": {
+      "mean": 0.856271083704954,
+      "std": 0.17772213570819562,
+      "median": 0.9285185635089874,
+      "min": 0.2504534423351288,
+      "max": 0.9685195088386536
+    },
+    "map50": 0.7916129777717122,
+    "map50_95": 0.5452551210422161,
+    "mp": 0.8952415955127313,
+    "mr": 0.7921974522292994
+  },
+  "geometry": {
+    "iou": 0.8424644336310435,
+    "pred_coverage": 0.9421967486028603,
+    "target_coverage": 0.894548822829257
+  },
+  "sam": {
+    "n_positive": 3768,
+    "n_detected_positive": 3499,
+    "n_no_detection": 269,
+    "overall_dice": 0.7028443636045818,
+    "conditional_dice": 0.7568784115638937,
+    "gtbox_dice": 0.7601592418960187,
+    "overall_iou": 0.5986188767232866,
+    "conditional_iou": 0.6446401621872946,
+    "neg_seg_fp_rate": 0.08576051779935275,
+    "detection_rate_pos": 0.9286093418259024
+  }
+}

@@ -1,0 +1,193 @@
+{
+ "draws": 20000,
+ "cohorts": {
+  "clean": {
+   "n": 24,
+   "complete": true,
+   "regions": {
+    "WT": {
+     "one_box": 0.8672,
+     "per_component": 0.8923,
+     "delta": 0.0251,
+     "ci": [
+      0.015,
+      0.0366
+     ],
+     "prompts_per_slice": 1.48,
+     "vol_err_median_one_box": 2.5,
+     "vol_err_median_per_component": -2.0
+    },
+    "TC": {
+     "one_box": 0.8913,
+     "per_component": 0.9098,
+     "delta": 0.0185,
+     "ci": [
+      0.0059,
+      0.0368
+     ],
+     "prompts_per_slice": 1.11,
+     "vol_err_median_one_box": 1.3,
+     "vol_err_median_per_component": -1.3
+    },
+    "ET": {
+     "one_box": 0.6699,
+     "per_component": 0.7471,
+     "delta": 0.0772,
+     "ci": [
+      0.0266,
+      0.1387
+     ],
+     "prompts_per_slice": 1.39,
+     "vol_err_median_one_box": 46.3,
+     "vol_err_median_per_component": 32.0
+    }
+   },
+   "detector_stage": {
+    "one_box": [
+     0.0059,
+     -0.0078,
+     0.0219
+    ],
+    "per_component": [
+     0.031,
+     0.0169,
+     0.0502
+    ]
+   }
+  },
+  "rhuh": {
+   "n": 39,
+   "complete": true,
+   "regions": {
+    "WT": {
+     "one_box": 0.8643,
+     "per_component": 0.8833,
+     "delta": 0.019,
+     "ci": [
+      0.0112,
+      0.0303
+     ],
+     "prompts_per_slice": 1.35,
+     "vol_err_median_one_box": 1.2,
+     "vol_err_median_per_component": -0.7
+    },
+    "TC": {
+     "one_box": 0.9074,
+     "per_component": 0.929,
+     "delta": 0.0217,
+     "ci": [
+      0.0101,
+      0.0367
+     ],
+     "prompts_per_slice": 1.17,
+     "vol_err_median_one_box": 1.6,
+     "vol_err_median_per_component": -0.1
+    },
+    "ET": {
+     "one_box": 0.7176,
+     "per_component": 0.7408,
+     "delta": 0.0232,
+     "ci": [
+      0.0111,
+      0.0388
+     ],
+     "prompts_per_slice": 1.28,
+     "vol_err_median_one_box": 49.7,
+     "vol_err_median_per_component": 40.9
+    }
+   },
+   "detector_stage": {
+    "one_box": [
+     0.018,
+     0.0095,
+     0.0287
+    ],
+    "per_component": [
+     0.037,
+     0.0225,
+     0.0567
+    ]
+   }
+  },
+  "brats_africa": {
+   "n": 95,
+   "complete": true,
+   "regions": {
+    "WT": {
+     "one_box": 0.8467,
+     "per_component": 0.8699,
+     "delta": 0.0232,
+     "ci": [
+      0.0157,
+      0.0316
+     ],
+     "prompts_per_slice": 1.33,
+     "vol_err_median_one_box": 1.0,
+     "vol_err_median_per_component": -0.9
+    },
+    "TC": {
+     "one_box": 0.852,
+     "per_component": 0.8881,
+     "delta": 0.0361,
+     "ci": [
+      0.0221,
+      0.0521
+     ],
+     "prompts_per_slice": 1.24,
+     "vol_err_median_one_box": 2.8,
+     "vol_err_median_per_component": -0.9
+    },
+    "ET": {
+     "one_box": 0.7095,
+     "per_component": 0.7508,
+     "delta": 0.0412,
+     "ci": [
+      0.0275,
+      0.0566
+     ],
+     "prompts_per_slice": 1.43,
+     "vol_err_median_one_box": 41.0,
+     "vol_err_median_per_component": 26.3
+    }
+   },
+   "detector_stage": {
+    "one_box": [
+     0.0914,
+     0.0544,
+     0.1335
+    ],
+    "per_component": [
+     0.1145,
+     0.0789,
+     0.1554
+    ]
+   }
+  }
+ },
+ "contrast_vs_held_out": {
+  "rhuh": {
+   "one_box": [
+    0.012,
+    -0.0061,
+    0.0291
+   ],
+   "per_component": [
+    0.006,
+    -0.0182,
+    0.03
+   ]
+  },
+  "brats_africa": {
+   "one_box": [
+    0.0854,
+    0.045,
+    0.1304
+   ],
+   "per_component": [
+    0.0835,
+    0.043,
+    0.128
+   ]
+  }
+ }
+}

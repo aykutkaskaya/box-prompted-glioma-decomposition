@@ -1,0 +1,90 @@
+{
+ "draws": 20000,
+ "seed": 1337,
+ "segmenter": "sam2.1_l",
+ "within": {
+  "clean/1337": {
+   "n": 24,
+   "mean": 0.0059,
+   "ci": [
+    -0.0078,
+    0.0219
+   ]
+  },
+  "clean/42": {
+   "n": 24,
+   "mean": 0.006,
+   "ci": [
+    -0.0057,
+    0.0197
+   ]
+  },
+  "rhuh/1337": {
+   "n": 39,
+   "mean": 0.018,
+   "ci": [
+    0.0097,
+    0.0285
+   ]
+  },
+  "rhuh/42": {
+   "n": 39,
+   "mean": 0.0164,
+   "ci": [
+    0.0087,
+    0.0262
+   ]
+  },
+  "brats_africa/1337": {
+   "n": 95,
+   "mean": 0.0914,
+   "ci": [
+    0.0542,
+    0.1338
+   ]
+  },
+  "brats_africa/42": {
+   "n": 95,
+   "mean": 0.0755,
+   "ci": [
+    0.044,
+    0.1123
+   ]
+  }
+ },
+ "between": {
+  "rhuh-clean/1337": {
+   "difference": 0.012,
+   "ci": [
+    -0.0062,
+    0.0295
+   ],
+   "excludes_zero": false
+  },
+  "rhuh-clean/42": {
+   "difference": 0.0104,
+   "ci": [
+    -0.0052,
+    0.0258
+   ],
+   "excludes_zero": false
+  },
+  "brats_africa-clean/1337": {
+   "difference": 0.0854,
+   "ci": [
+    0.045,
+    0.1303
+   ],
+   "excludes_zero": true
+  },
+  "brats_africa-clean/42": {
+   "difference": 0.0695,
+   "ci": [
+    0.0353,
+    0.1074
+   ],
+   "excludes_zero": true
+  }
+ },
+ "all_contrasts_exclude_zero": false
+}

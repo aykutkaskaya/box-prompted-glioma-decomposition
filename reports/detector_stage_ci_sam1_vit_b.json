@@ -1,0 +1,50 @@
+{
+ "draws": 20000,
+ "seed": 1337,
+ "segmenter": "sam1_vit_b",
+ "within": {
+  "clean/1337": {
+   "n": 24,
+   "mean": 0.0097,
+   "ci": [
+    -0.004,
+    0.0267
+   ]
+  },
+  "rhuh/1337": {
+   "n": 39,
+   "mean": 0.015,
+   "ci": [
+    0.0077,
+    0.0236
+   ]
+  },
+  "brats_africa/1337": {
+   "n": 95,
+   "mean": 0.0921,
+   "ci": [
+    0.0549,
+    0.1339
+   ]
+  }
+ },
+ "between": {
+  "rhuh-clean/1337": {
+   "difference": 0.0052,
+   "ci": [
+    -0.0132,
+    0.0213
+   ],
+   "excludes_zero": false
+  },
+  "brats_africa-clean/1337": {
+   "difference": 0.0824,
+   "ci": [
+    0.0421,
+    0.1273
+   ],
+   "excludes_zero": true
+  }
+ },
+ "all_contrasts_exclude_zero": false
+}

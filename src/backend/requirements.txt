@@ -1,0 +1,9 @@
+fastapi==0.136.1
+uvicorn[standard]==0.46.0
+python-multipart==0.0.27
+ultralytics==8.4.47
+segment-anything==1.0
+opencv-python==4.13.0.92
+pillow==12.1.1
+numpy==2.4.3
+nibabel==5.4.2

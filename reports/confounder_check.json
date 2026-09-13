@@ -1,0 +1,41 @@
+{
+ "segmenter": "sam2.1_l",
+ "cohorts": {
+  "clean": {
+   "n": 24,
+   "median_gt_voxels": 99788,
+   "spearman_term_vs_volume": -0.431,
+   "p": 0.03535045592471369
+  },
+  "rhuh": {
+   "n": 39,
+   "median_gt_voxels": 110975,
+   "spearman_term_vs_volume": -0.033,
+   "p": 0.8409850757278741
+  },
+  "brats_africa": {
+   "n": 95,
+   "median_gt_voxels": 162872,
+   "spearman_term_vs_volume": -0.429,
+   "p": 1.4292946732841297e-05
+  }
+ },
+ "pooled": {
+  "n": 158,
+  "spearman": -0.294,
+  "p": 0.00017547561563843438
+ },
+ "between": {
+  "rhuh": {
+   "median_ratio": 1.11,
+   "mannwhitney_p": 0.9830620280664729,
+   "larger_than_held_out": true
+  },
+  "brats_africa": {
+   "median_ratio": 1.63,
+   "mannwhitney_p": 0.0075345833193042645,
+   "larger_than_held_out": true
+  }
+ },
+ "size_explains_result": false
+}

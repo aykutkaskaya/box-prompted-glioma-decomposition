@@ -1,0 +1,89 @@
+{
+ "seeds": [
+  1337,
+  42
+ ],
+ "segmenter": "sam2.1_l",
+ "cohorts": {
+  "clean": {
+   "n": 24,
+   "oracle_box": 0.8672,
+   "seeds": {
+    "1337": {
+     "pipeline": 0.8612,
+     "detector_stage": 0.0059,
+     "detector_stage_raw": 0.005928125000000006
+    },
+    "42": {
+     "pipeline": 0.8612,
+     "detector_stage": 0.006,
+     "detector_stage_raw": 0.0060012916666666765
+    }
+   },
+   "spread": 0.0001
+  },
+  "rhuh": {
+   "n": 39,
+   "oracle_box": 0.8643,
+   "seeds": {
+    "1337": {
+     "pipeline": 0.8463,
+     "detector_stage": 0.018,
+     "detector_stage_raw": 0.01797628205128205
+    },
+    "42": {
+     "pipeline": 0.8479,
+     "detector_stage": 0.0164,
+     "detector_stage_raw": 0.01638205128205128
+    }
+   },
+   "spread": 0.0016
+  },
+  "brats_africa": {
+   "n": 95,
+   "oracle_box": 0.8467,
+   "seeds": {
+    "1337": {
+     "pipeline": 0.7554,
+     "detector_stage": 0.0914,
+     "detector_stage_raw": 0.09135207368421053
+    },
+    "42": {
+     "pipeline": 0.7713,
+     "detector_stage": 0.0755,
+     "detector_stage_raw": 0.07545489473684211
+    }
+   },
+   "spread": 0.0159
+  }
+ },
+ "ordering": {
+  "1337": {
+   "terms": [
+    0.0059,
+    0.018,
+    0.0914
+   ],
+   "external_over_internal": [
+    3.0,
+    15.4
+   ],
+   "rank_order_preserved": true
+  },
+  "42": {
+   "terms": [
+    0.006,
+    0.0164,
+    0.0755
+   ],
+   "external_over_internal": [
+    2.7,
+    12.6
+   ],
+   "rank_order_preserved": true
+  }
+ },
+ "categorical_min_ratio": 2.7,
+ "categorical_holds": false,
+ "rank_order_agrees": true
+}

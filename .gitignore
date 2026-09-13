@@ -1,0 +1,26 @@
+# imaging and weights are not redistributed here; the run
+# summaries and per-patient metrics under experiments/ are, because the audit
+# derives the detector figures and the selection check from them
+data/raw/
+data/external/
+models/
+shared_artifacts/
+experiments*/**/checkpoints/
+experiments*/**/*.pt
+experiments*/**/*.pth
+
+# build and runtime noise
+__pycache__/
+*.pyc
+*.log
+.venv/
+venv/
+node_modules/
+.DS_Store
+Thumbs.db
+
+# local overrides
+.env
+
+# author front matter is not kept in the repository
+authors.json

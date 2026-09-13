@@ -1,0 +1,199 @@
+{
+ "box_file": "rhuh_box.jsonl",
+ "direct_file": "rhuh_direct.jsonl",
+ "n_patients": 39,
+ "patients": [
+  "RHUH_0001",
+  "RHUH_0002",
+  "RHUH_0003",
+  "RHUH_0004",
+  "RHUH_0005",
+  "RHUH_0006",
+  "RHUH_0007",
+  "RHUH_0008",
+  "RHUH_0009",
+  "RHUH_0010",
+  "RHUH_0011",
+  "RHUH_0012",
+  "RHUH_0013",
+  "RHUH_0014",
+  "RHUH_0015",
+  "RHUH_0016",
+  "RHUH_0017",
+  "RHUH_0018",
+  "RHUH_0019",
+  "RHUH_0020",
+  "RHUH_0021",
+  "RHUH_0022",
+  "RHUH_0023",
+  "RHUH_0024",
+  "RHUH_0025",
+  "RHUH_0026",
+  "RHUH_0027",
+  "RHUH_0029",
+  "RHUH_0030",
+  "RHUH_0031",
+  "RHUH_0032",
+  "RHUH_0033",
+  "RHUH_0034",
+  "RHUH_0035",
+  "RHUH_0036",
+  "RHUH_0037",
+  "RHUH_0038",
+  "RHUH_0039",
+  "RHUH_0040"
+ ],
+ "alpha": 0.05,
+ "bootstrap_draws": 20000,
+ "arms": {
+  "oracle:sam1_vit_b": {
+   "n": 39,
+   "mean": 0.8795,
+   "median": 0.8932,
+   "sd": 0.0652,
+   "min": 0.6944,
+   "max": 0.9548
+  },
+  "oracle:sam2.1_l": {
+   "n": 39,
+   "mean": 0.8963,
+   "median": 0.9027,
+   "sd": 0.0474,
+   "min": 0.7284,
+   "max": 0.9582
+  },
+  "pipeline:sam1_vit_b": {
+   "n": 39,
+   "mean": 0.8121,
+   "median": 0.8646,
+   "sd": 0.1748,
+   "min": 0.0,
+   "max": 0.9434
+  },
+  "pipeline:sam2.1_l": {
+   "n": 39,
+   "mean": 0.8271,
+   "median": 0.8808,
+   "sd": 0.1718,
+   "min": 0.0,
+   "max": 0.9445
+  },
+  "direct:seed_42": {
+   "n": 39,
+   "mean": 0.8508,
+   "median": 0.8999,
+   "sd": 0.1401,
+   "min": 0.2033,
+   "max": 0.9443
+  }
+ },
+ "contrasts": [
+  {
+   "contrast": "detector-free minus the best box pipeline",
+   "base": "pipeline:sam2.1_l",
+   "test": "direct:seed_42",
+   "n": 39,
+   "mean_diff": 0.0237,
+   "median_diff": 0.022,
+   "sd_diff": 0.0591,
+   "wins": 26,
+   "ci95": [
+    0.0054,
+    0.0423
+   ],
+   "ci95_halfwidth": 0.0184,
+   "wilcoxon_p": 0.010643250829161843
+  },
+  {
+   "contrast": "detector-free minus the study's pipeline",
+   "base": "pipeline:sam1_vit_b",
+   "test": "direct:seed_42",
+   "n": 39,
+   "mean_diff": 0.0387,
+   "median_diff": 0.0334,
+   "sd_diff": 0.0662,
+   "wins": 28,
+   "ci95": [
+    0.0186,
+    0.0594
+   ],
+   "ci95_halfwidth": 0.0204,
+   "wilcoxon_p": 0.0005260813959466759
+  },
+  {
+   "contrast": "detector-free minus the oracle ceiling",
+   "base": "oracle:sam2.1_l",
+   "test": "direct:seed_42",
+   "n": 39,
+   "mean_diff": -0.0455,
+   "median_diff": -0.0104,
+   "sd_diff": 0.1365,
+   "wins": 12,
+   "ci95": [
+    -0.0931,
+    -0.0099
+   ],
+   "ci95_halfwidth": 0.0416,
+   "wilcoxon_p": 0.02050083966605598
+  }
+ ],
+ "regions": {
+  "WT": {
+   "n": 39,
+   "mean": 0.8508,
+   "median": 0.8999,
+   "sd": 0.1401,
+   "min": 0.2033,
+   "max": 0.9443
+  },
+  "TC": {
+   "n": 39,
+   "mean": 0.657,
+   "median": 0.732,
+   "sd": 0.1996,
+   "min": 0.0187,
+   "max": 0.8948
+  },
+  "ET": {
+   "n": 39,
+   "mean": 0.5754,
+   "median": 0.6577,
+   "sd": 0.2084,
+   "min": 0.0034,
+   "max": 0.8361
+  }
+ },
+ "patients_without_region_gt": {
+  "WT": 0,
+  "TC": 0,
+  "ET": 0
+ },
+ "collapses": {
+  "oracle:sam1_vit_b": [],
+  "oracle:sam2.1_l": [],
+  "pipeline:sam1_vit_b": [
+   "RHUH_0001",
+   "RHUH_0022"
+  ],
+  "pipeline:sam2.1_l": [
+   "RHUH_0001",
+   "RHUH_0022"
+  ],
+  "direct:seed_42": [
+   "RHUH_0001",
+   "RHUH_0022"
+  ]
+ },
+ "robustness": {
+  "threshold": 0.5,
+  "excluded": [
+   "RHUH_0001",
+   "RHUH_0022"
+  ],
+  "n": 37,
+  "mean_diff": 0.0168,
+  "median_diff": 0.0177,
+  "wins": 24,
+  "wilcoxon_p": 0.029801455457345583
+ }
+}

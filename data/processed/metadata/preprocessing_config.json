@@ -1,0 +1,36 @@
+{
+  "fingerprint": "02a946e10731c858bd11af568a76986182b92e4722c6815e83545002fb18e016",
+  "payload": {
+    "source": "awsaf49/brats20-dataset-training-validation",
+    "split_hash": "fae05e5d48dfa31e5d867360d602a04c3e4be61055cbe9fe4d2920c7b3970bfc",
+    "modality_order": [
+      "flair",
+      "t1ce",
+      "t2"
+    ],
+    "normalization": "zscore",
+    "clip": [
+      1.0,
+      99.0
+    ],
+    "plane": "axial",
+    "min_brain_pixels": 500,
+    "min_tumor_pixels": 10,
+    "neg_to_pos_ratio": 0.5,
+    "hard_negative_band": 3,
+    "negative_seed": 1337,
+    "code_hash": "da0adce41a3ca708c9d604b57e8261363a228474de8b8b19b05f5efdea31d016"
+  },
+  "config": {
+    "normalization": "zscore",
+    "clip_low_pct": 1.0,
+    "clip_high_pct": 99.0,
+    "plane": "axial",
+    "min_brain_pixels": 500,
+    "min_tumor_pixels": 10,
+    "flag_tiny_positive": true,
+    "neg_to_pos_ratio": 0.5,
+    "hard_negative_band": 3,
+    "negative_seed": 1337
+  }
+}

@@ -1,0 +1,132 @@
+{
+ "seeds": [
+  "42",
+  "52",
+  "62"
+ ],
+ "segmenter": "sam2.1_l",
+ "draws": 20000,
+ "cohorts": {
+  "clean": {
+   "n": 24,
+   "pipeline": 0.8612,
+   "oracle_box": 0.8672,
+   "seeds": {
+    "42": {
+     "detector_free": 0.9189,
+     "gap": 0.0576,
+     "residual": 0.0517,
+     "wins": 22,
+     "ci": [
+      0.0403,
+      0.0795
+     ]
+    },
+    "52": {
+     "detector_free": 0.922,
+     "gap": 0.0608,
+     "residual": 0.0548,
+     "wins": 23,
+     "ci": [
+      0.0447,
+      0.0806
+     ]
+    },
+    "62": {
+     "detector_free": 0.9226,
+     "gap": 0.0614,
+     "residual": 0.0554,
+     "wins": 23,
+     "ci": [
+      0.0432,
+      0.084
+     ]
+    }
+   },
+   "gap_spread": 0.0038
+  },
+  "rhuh": {
+   "n": 39,
+   "pipeline": 0.8463,
+   "oracle_box": 0.8643,
+   "seeds": {
+    "42": {
+     "detector_free": 0.8508,
+     "gap": 0.0045,
+     "residual": -0.0135,
+     "wins": 27,
+     "ci": [
+      -0.0379,
+      0.0388
+     ]
+    },
+    "52": {
+     "detector_free": 0.8787,
+     "gap": 0.0324,
+     "residual": 0.0144,
+     "wins": 32,
+     "ci": [
+      -0.0085,
+      0.0617
+     ]
+    },
+    "62": {
+     "detector_free": 0.8696,
+     "gap": 0.0233,
+     "residual": 0.0053,
+     "wins": 30,
+     "ci": [
+      -0.0099,
+      0.0506
+     ]
+    }
+   },
+   "gap_spread": 0.0279
+  },
+  "brats_africa": {
+   "n": 95,
+   "pipeline": 0.7554,
+   "oracle_box": 0.8467,
+   "seeds": {
+    "42": {
+     "detector_free": 0.8829,
+     "gap": 0.1275,
+     "residual": 0.0362,
+     "wins": 95,
+     "ci": [
+      0.1061,
+      0.1522
+     ]
+    },
+    "52": {
+     "detector_free": 0.8819,
+     "gap": 0.1265,
+     "residual": 0.0351,
+     "wins": 95,
+     "ci": [
+      0.1078,
+      0.1473
+     ]
+    },
+    "62": {
+     "detector_free": 0.8812,
+     "gap": 0.1258,
+     "residual": 0.0344,
+     "wins": 94,
+     "ci": [
+      0.1055,
+      0.1487
+     ]
+    }
+   },
+   "gap_spread": 0.0017
+  }
+ },
+ "africa_over_rhuh": [
+  28.3,
+  3.9,
+  5.4
+ ],
+ "residual_sign_pattern_stable": false,
+ "pipeline_never_ahead": true
+}

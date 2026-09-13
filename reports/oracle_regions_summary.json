@@ -1,0 +1,318 @@
+{
+ "cohorts": {
+  "rhuh": {
+   "name": "RHUH-GBM (external, another hospital)",
+   "oracle_file": "rhuh_oracle_regions.jsonl",
+   "direct_file": "rhuh_direct.jsonl",
+   "n_patients": 39,
+   "patients": [
+    "RHUH_0001",
+    "RHUH_0002",
+    "RHUH_0003",
+    "RHUH_0004",
+    "RHUH_0005",
+    "RHUH_0006",
+    "RHUH_0007",
+    "RHUH_0008",
+    "RHUH_0009",
+    "RHUH_0010",
+    "RHUH_0011",
+    "RHUH_0012",
+    "RHUH_0013",
+    "RHUH_0014",
+    "RHUH_0015",
+    "RHUH_0016",
+    "RHUH_0017",
+    "RHUH_0018",
+    "RHUH_0019",
+    "RHUH_0020",
+    "RHUH_0021",
+    "RHUH_0022",
+    "RHUH_0023",
+    "RHUH_0024",
+    "RHUH_0025",
+    "RHUH_0026",
+    "RHUH_0027",
+    "RHUH_0029",
+    "RHUH_0030",
+    "RHUH_0031",
+    "RHUH_0032",
+    "RHUH_0033",
+    "RHUH_0034",
+    "RHUH_0035",
+    "RHUH_0036",
+    "RHUH_0037",
+    "RHUH_0038",
+    "RHUH_0039",
+    "RHUH_0040"
+   ],
+   "oracle": {
+    "sam1_vit_b": {
+     "WT": {
+      "n": 39,
+      "mean": 0.8795,
+      "median": 0.8932,
+      "sd": 0.0652,
+      "min": 0.6944,
+      "max": 0.9548,
+      "mean_rel_vol_diff": 0.0313
+     },
+     "TC": {
+      "n": 39,
+      "mean": 0.8984,
+      "median": 0.9145,
+      "sd": 0.0579,
+      "min": 0.671,
+      "max": 0.9602,
+      "mean_rel_vol_diff": -0.0586
+     },
+     "ET": {
+      "n": 39,
+      "mean": 0.6976,
+      "median": 0.7239,
+      "sd": 0.1608,
+      "min": 0.2389,
+      "max": 0.9052,
+      "mean_rel_vol_diff": 0.4508
+     }
+    },
+    "sam2.1_l": {
+     "WT": {
+      "n": 39,
+      "mean": 0.8963,
+      "median": 0.9027,
+      "sd": 0.0474,
+      "min": 0.7284,
+      "max": 0.9582,
+      "mean_rel_vol_diff": 0.0447
+     },
+     "TC": {
+      "n": 39,
+      "mean": 0.9063,
+      "median": 0.92,
+      "sd": 0.0676,
+      "min": 0.6624,
+      "max": 0.9729,
+      "mean_rel_vol_diff": 0.0419
+     },
+     "ET": {
+      "n": 39,
+      "mean": 0.7267,
+      "median": 0.7429,
+      "sd": 0.142,
+      "min": 0.3781,
+      "max": 0.9203,
+      "mean_rel_vol_diff": 0.6032
+     }
+    }
+   },
+   "patients_without_region_gt": {
+    "WT": 0,
+    "TC": 0,
+    "ET": 0
+   },
+   "detector_free": {
+    "source": "rhuh_summary.json",
+    "arm": "direct:seed_42",
+    "regions": {
+     "WT": {
+      "n": 39,
+      "mean": 0.8508,
+      "median": 0.8999,
+      "sd": 0.1401,
+      "min": 0.2033,
+      "max": 0.9443
+     },
+     "TC": {
+      "n": 39,
+      "mean": 0.657,
+      "median": 0.732,
+      "sd": 0.1996,
+      "min": 0.0187,
+      "max": 0.8948
+     },
+     "ET": {
+      "n": 39,
+      "mean": 0.5754,
+      "median": 0.6577,
+      "sd": 0.2084,
+      "min": 0.0034,
+      "max": 0.8361
+     }
+    }
+   },
+   "et_box_returns_tc": {
+    "sam1_vit_b": {
+     "n": 39,
+     "et_prediction_is_the_tc_prediction": 32,
+     "mean_rel_vol_diff_et": 0.4508,
+     "on_those_patients": {
+      "dice_vs_ET": 0.7156,
+      "dice_vs_TC": 0.9024
+     }
+    },
+    "sam2.1_l": {
+     "n": 39,
+     "et_prediction_is_the_tc_prediction": 31,
+     "mean_rel_vol_diff_et": 0.6032,
+     "on_those_patients": {
+      "dice_vs_ET": 0.7395,
+      "dice_vs_TC": 0.908
+     }
+    }
+   }
+  },
+  "clean": {
+   "name": "BraTS2020 mutually held-out (internal)",
+   "oracle_file": "clean_oracle_regions.jsonl",
+   "direct_file": "clean_direct.jsonl",
+   "n_patients": 24,
+   "patients": [
+    "BraTS20_Training_022",
+    "BraTS20_Training_037",
+    "BraTS20_Training_085",
+    "BraTS20_Training_093",
+    "BraTS20_Training_118",
+    "BraTS20_Training_136",
+    "BraTS20_Training_146",
+    "BraTS20_Training_148",
+    "BraTS20_Training_158",
+    "BraTS20_Training_171",
+    "BraTS20_Training_178",
+    "BraTS20_Training_219",
+    "BraTS20_Training_221",
+    "BraTS20_Training_226",
+    "BraTS20_Training_254",
+    "BraTS20_Training_285",
+    "BraTS20_Training_292",
+    "BraTS20_Training_305",
+    "BraTS20_Training_310",
+    "BraTS20_Training_317",
+    "BraTS20_Training_326",
+    "BraTS20_Training_333",
+    "BraTS20_Training_339",
+    "BraTS20_Training_344"
+   ],
+   "oracle": {
+    "sam1_vit_b": {
+     "WT": {
+      "n": 24,
+      "mean": 0.8433,
+      "median": 0.8644,
+      "sd": 0.0657,
+      "min": 0.6602,
+      "max": 0.9211,
+      "mean_rel_vol_diff": 0.0041
+     },
+     "TC": {
+      "n": 24,
+      "mean": 0.8678,
+      "median": 0.8859,
+      "sd": 0.0647,
+      "min": 0.7061,
+      "max": 0.9487,
+      "mean_rel_vol_diff": -0.0527
+     },
+     "ET": {
+      "n": 22,
+      "mean": 0.6388,
+      "median": 0.669,
+      "sd": 0.1746,
+      "min": 0.1984,
+      "max": 0.8541,
+      "mean_rel_vol_diff": 0.7197
+     }
+    },
+    "sam2.1_l": {
+     "WT": {
+      "n": 24,
+      "mean": 0.8672,
+      "median": 0.8898,
+      "sd": 0.0643,
+      "min": 0.6907,
+      "max": 0.935,
+      "mean_rel_vol_diff": 0.0565
+     },
+     "TC": {
+      "n": 24,
+      "mean": 0.8913,
+      "median": 0.8991,
+      "sd": 0.0615,
+      "min": 0.7283,
+      "max": 0.9538,
+      "mean_rel_vol_diff": 0.0331
+     },
+     "ET": {
+      "n": 22,
+      "mean": 0.6699,
+      "median": 0.7052,
+      "sd": 0.1862,
+      "min": 0.1908,
+      "max": 0.8741,
+      "mean_rel_vol_diff": 0.9764
+     }
+    }
+   },
+   "patients_without_region_gt": {
+    "WT": 0,
+    "TC": 0,
+    "ET": 2
+   },
+   "detector_free": {
+    "source": "clean_direct.jsonl",
+    "arm": "direct:seed_42",
+    "regions": {
+     "WT": {
+      "n": 24,
+      "mean": 0.9189,
+      "median": 0.9259,
+      "sd": 0.042,
+      "min": 0.7922,
+      "max": 0.9648
+     },
+     "TC": {
+      "n": 24,
+      "mean": 0.759,
+      "median": 0.7921,
+      "sd": 0.1594,
+      "min": 0.2567,
+      "max": 0.9503
+     },
+     "ET": {
+      "n": 22,
+      "mean": 0.6312,
+      "median": 0.6924,
+      "sd": 0.2318,
+      "min": 0.0811,
+      "max": 0.9124
+     }
+    }
+   },
+   "et_box_returns_tc": {
+    "sam1_vit_b": {
+     "n": 22,
+     "et_prediction_is_the_tc_prediction": 1,
+     "mean_rel_vol_diff_et": 0.7197,
+     "on_those_patients": {
+      "dice_vs_ET": 0.832,
+      "dice_vs_TC": 0.9487
+     }
+    },
+    "sam2.1_l": {
+     "n": 22,
+     "et_prediction_is_the_tc_prediction": 0,
+     "mean_rel_vol_diff_et": 0.9764
+    }
+   }
+  }
+ },
+ "regions": [
+  "WT",
+  "TC",
+  "ET"
+ ],
+ "segmenters": [
+  "sam1_vit_b",
+  "sam2.1_l"
+ ]
+}

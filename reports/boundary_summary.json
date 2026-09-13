@@ -1,0 +1,99 @@
+{
+ "tolerance_mm": 2.0,
+ "draws": 20000,
+ "cohorts": {
+  "clean": {
+   "n": 24,
+   "arms": {
+    "oracle": {
+     "scored": 24,
+     "empty_prediction": 0,
+     "hd95_median": 4.69,
+     "hd95_mean": 7.3,
+     "nsd_median": 0.7676,
+     "nsd_mean": 0.7646
+    },
+    "pipeline": {
+     "scored": 24,
+     "empty_prediction": 0,
+     "hd95_median": 6.23,
+     "hd95_mean": 9.93,
+     "nsd_median": 0.742,
+     "nsd_mean": 0.7452
+    }
+   },
+   "pipeline_minus_oracle_hd95": {
+    "n": 24,
+    "mean": 2.63,
+    "median": 0.26,
+    "ci": [
+     -2.89,
+     9.78
+    ],
+    "pipeline_better": 10
+   }
+  },
+  "rhuh": {
+   "n": 39,
+   "arms": {
+    "oracle": {
+     "scored": 39,
+     "empty_prediction": 0,
+     "hd95_median": 5.92,
+     "hd95_mean": 6.48,
+     "nsd_median": 0.7691,
+     "nsd_mean": 0.7653
+    },
+    "pipeline": {
+     "scored": 39,
+     "empty_prediction": 0,
+     "hd95_median": 7.55,
+     "hd95_mean": 11.8,
+     "nsd_median": 0.7132,
+     "nsd_mean": 0.7141
+    }
+   },
+   "pipeline_minus_oracle_hd95": {
+    "n": 39,
+    "mean": 5.32,
+    "median": 0.76,
+    "ci": [
+     1.74,
+     9.93
+    ],
+    "pipeline_better": 6
+   }
+  },
+  "brats_africa": {
+   "n": 95,
+   "arms": {
+    "oracle": {
+     "scored": 95,
+     "empty_prediction": 0,
+     "hd95_median": 7.28,
+     "hd95_mean": 8.17,
+     "nsd_median": 0.6932,
+     "nsd_mean": 0.6832
+    },
+    "pipeline": {
+     "scored": 92,
+     "empty_prediction": 3,
+     "hd95_median": 10.59,
+     "hd95_mean": 14.24,
+     "nsd_median": 0.6062,
+     "nsd_mean": 0.5801
+    }
+   },
+   "pipeline_minus_oracle_hd95": {
+    "n": 92,
+    "mean": 5.87,
+    "median": 1.77,
+    "ci": [
+     3.83,
+     8.11
+    ],
+    "pipeline_better": 19
+   }
+  }
+ }
+}

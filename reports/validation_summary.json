@@ -1,0 +1,223 @@
+{
+ "n_patients": 55,
+ "patients": [
+  "BraTS20_Training_009",
+  "BraTS20_Training_010",
+  "BraTS20_Training_023",
+  "BraTS20_Training_028",
+  "BraTS20_Training_034",
+  "BraTS20_Training_035",
+  "BraTS20_Training_037",
+  "BraTS20_Training_054",
+  "BraTS20_Training_056",
+  "BraTS20_Training_061",
+  "BraTS20_Training_085",
+  "BraTS20_Training_088",
+  "BraTS20_Training_101",
+  "BraTS20_Training_103",
+  "BraTS20_Training_105",
+  "BraTS20_Training_127",
+  "BraTS20_Training_136",
+  "BraTS20_Training_158",
+  "BraTS20_Training_160",
+  "BraTS20_Training_161",
+  "BraTS20_Training_171",
+  "BraTS20_Training_179",
+  "BraTS20_Training_181",
+  "BraTS20_Training_185",
+  "BraTS20_Training_187",
+  "BraTS20_Training_188",
+  "BraTS20_Training_197",
+  "BraTS20_Training_201",
+  "BraTS20_Training_205",
+  "BraTS20_Training_207",
+  "BraTS20_Training_209",
+  "BraTS20_Training_218",
+  "BraTS20_Training_235",
+  "BraTS20_Training_236",
+  "BraTS20_Training_259",
+  "BraTS20_Training_270",
+  "BraTS20_Training_274",
+  "BraTS20_Training_281",
+  "BraTS20_Training_293",
+  "BraTS20_Training_296",
+  "BraTS20_Training_300",
+  "BraTS20_Training_305",
+  "BraTS20_Training_309",
+  "BraTS20_Training_310",
+  "BraTS20_Training_316",
+  "BraTS20_Training_317",
+  "BraTS20_Training_318",
+  "BraTS20_Training_326",
+  "BraTS20_Training_337",
+  "BraTS20_Training_340",
+  "BraTS20_Training_343",
+  "BraTS20_Training_344",
+  "BraTS20_Training_360",
+  "BraTS20_Training_365",
+  "BraTS20_Training_369"
+ ],
+ "arms": {
+  "oracle:sam1_vit_b": {
+   "n": 55,
+   "mean": 0.8086,
+   "median": 0.8341,
+   "sd": 0.0927,
+   "min": 0.4266,
+   "max": 0.917
+  },
+  "oracle:sam2.1_l": {
+   "n": 55,
+   "mean": 0.8366,
+   "median": 0.8565,
+   "sd": 0.0872,
+   "min": 0.451,
+   "max": 0.9392
+  },
+  "pipeline:sam1_vit_b": {
+   "n": 55,
+   "mean": 0.803,
+   "median": 0.8132,
+   "sd": 0.0931,
+   "min": 0.4704,
+   "max": 0.9185
+  },
+  "pipeline:sam2.1_l": {
+   "n": 55,
+   "mean": 0.8328,
+   "median": 0.8541,
+   "sd": 0.0837,
+   "min": 0.5266,
+   "max": 0.9334
+  },
+  "direct:seed_42": {
+   "n": 55,
+   "mean": 0.9237,
+   "median": 0.9288,
+   "sd": 0.0389,
+   "min": 0.7922,
+   "max": 0.973
+  },
+  "direct:seed_62": {
+   "n": 55,
+   "mean": 0.9261,
+   "median": 0.9346,
+   "sd": 0.0383,
+   "min": 0.814,
+   "max": 0.9742
+  },
+  "direct:seed_52": {
+   "n": 55,
+   "mean": 0.925,
+   "median": 0.932,
+   "sd": 0.0393,
+   "min": 0.7752,
+   "max": 0.9706
+  }
+ },
+ "comparisons": [
+  {
+   "a": "pipeline:sam1_vit_b",
+   "b": "pipeline:sam2.1_l",
+   "question": "does SAM 2.1-L beat ViT-B in the real pipeline?",
+   "mean_diff": 0.0298,
+   "median_diff": 0.0214,
+   "b_wins": 48,
+   "n": 55,
+   "diff_pct2.5": -0.0137,
+   "diff_pct97.5": 0.1251,
+   "wilcoxon_p": 1.712761250698254e-08
+  },
+  {
+   "a": "oracle:sam1_vit_b",
+   "b": "oracle:sam2.1_l",
+   "question": "does SAM 2.1-L raise the oracle ceiling?",
+   "mean_diff": 0.028,
+   "median_diff": 0.0239,
+   "b_wins": 45,
+   "n": 55,
+   "diff_pct2.5": -0.0319,
+   "diff_pct97.5": 0.0987,
+   "wilcoxon_p": 4.978776333134374e-07
+  },
+  {
+   "a": "pipeline:sam2.1_l",
+   "b": "direct:seed_42",
+   "question": "detector-free vs the best box pipeline",
+   "mean_diff": 0.0909,
+   "median_diff": 0.0785,
+   "b_wins": 53,
+   "n": 55,
+   "diff_pct2.5": 0.0026,
+   "diff_pct97.5": 0.2477,
+   "wilcoxon_p": 1.3070729488682975e-10
+  },
+  {
+   "a": "oracle:sam2.1_l",
+   "b": "direct:seed_42",
+   "question": "detector-free vs the oracle ceiling",
+   "mean_diff": 0.0872,
+   "median_diff": 0.0728,
+   "b_wins": 52,
+   "n": 55,
+   "diff_pct2.5": -0.0045,
+   "diff_pct97.5": 0.2222,
+   "wilcoxon_p": 2.0265135704289187e-10
+  },
+  {
+   "a": "pipeline:sam1_vit_b",
+   "b": "direct:seed_42",
+   "question": "detector-free vs the study's pipeline",
+   "mean_diff": 0.1208,
+   "median_diff": 0.1144,
+   "b_wins": 54,
+   "n": 55,
+   "diff_pct2.5": 0.0135,
+   "diff_pct97.5": 0.2605,
+   "wilcoxon_p": 1.170547504057613e-10
+  }
+ ],
+ "seed_variance": {
+  "means": {
+   "seed_42": 0.9237,
+   "seed_62": 0.9261,
+   "seed_52": 0.925
+  },
+  "within_patient_sd_mean": 0.0055,
+  "within_patient_sd_max": 0.0214
+ },
+ "regions": {
+  "WT": {
+   "n": 55,
+   "mean": 0.9237,
+   "median": 0.9288,
+   "sd": 0.0389,
+   "min": 0.7922,
+   "max": 0.973
+  },
+  "TC": {
+   "n": 55,
+   "mean": 0.7983,
+   "median": 0.8484,
+   "sd": 0.1536,
+   "min": 0.2567,
+   "max": 0.9662
+  },
+  "ET": {
+   "n": 55,
+   "mean": 0.6531,
+   "median": 0.7469,
+   "sd": 0.2887,
+   "min": 0.0,
+   "max": 0.9376
+  }
+ },
+ "detection": {
+  "tp": 2973,
+  "fp": 255,
+  "fn": 794,
+  "precision": 0.921,
+  "recall": 0.7892,
+  "f1": 0.85
+ }
+}

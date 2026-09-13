@@ -1,0 +1,26 @@
+{
+ "BraTS2020": {
+  "slices": 978,
+  "equal": 470,
+  "pct": 48.1,
+  "mean_box_iou": 0.806,
+  "patients_all_slices": 0,
+  "patients": 22
+ },
+ "RHUH-GBM": {
+  "slices": 1700,
+  "equal": 1689,
+  "pct": 99.4,
+  "mean_box_iou": 0.999,
+  "patients_all_slices": 31,
+  "patients": 39
+ },
+ "BraTS-Africa": {
+  "slices": 4929,
+  "equal": 4201,
+  "pct": 85.2,
+  "mean_box_iou": 0.955,
+  "patients_all_slices": 58,
+  "patients": 95
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "detector": {
+  "weights_bytes": 66223997,
+  "file_bytes": 66223997
+ },
+ "sam1": {
+  "weights_bytes": 374942912,
+  "file_bytes": 375042383
+ },
+ "sam2": {
+  "weights_bytes": 448893796,
+  "file_bytes": 449239354
+ },
+ "lora": {
+  "weights_bytes": 6291456,
+  "file_bytes": 19054435
+ },
+ "medsam": {
+  "weights_bytes": 3371476184,
+  "file_bytes": 10018775172
+ }
+}

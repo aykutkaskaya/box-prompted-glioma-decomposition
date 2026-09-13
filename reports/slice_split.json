@@ -1,0 +1,66 @@
+{
+ "cohorts": {
+  "clean": {
+   "n": 24,
+   "oracle": 0.8672,
+   "hybrid": 0.8594,
+   "pipeline": 0.8612,
+   "detector_stage": 0.0059,
+   "missed_detection": -0.0018,
+   "box_geometry": 0.0078,
+   "missed_share": -0.307,
+   "positive_slices": 1621,
+   "missed_positive_slices": 226,
+   "tumour_voxels_on_missed_slices": 0.0112,
+   "oracle_median_dice_on_missed": 0.594
+  },
+  "rhuh": {
+   "n": 39,
+   "oracle": 0.8643,
+   "hybrid": 0.8486,
+   "pipeline": 0.8463,
+   "detector_stage": 0.018,
+   "missed_detection": 0.0023,
+   "box_geometry": 0.0157,
+   "missed_share": 0.125,
+   "positive_slices": 2597,
+   "missed_positive_slices": 196,
+   "tumour_voxels_on_missed_slices": 0.0069,
+   "oracle_median_dice_on_missed": 0.694
+  },
+  "brats_africa": {
+   "n": 95,
+   "oracle": 0.8467,
+   "hybrid": 0.8305,
+   "pipeline": 0.7554,
+   "detector_stage": 0.0914,
+   "missed_detection": 0.0751,
+   "box_geometry": 0.0162,
+   "missed_share": 0.822,
+   "positive_slices": 7052,
+   "missed_positive_slices": 1530,
+   "tumour_voxels_on_missed_slices": 0.0638,
+   "oracle_median_dice_on_missed": 0.762
+  }
+ },
+ "missed_share_range": [
+  -0.307,
+  0.822
+ ],
+ "box_geometry_vs_held_out": {
+  "rhuh": {
+   "point": 0.008,
+   "ci": [
+    -0.0096,
+    0.0238
+   ]
+  },
+  "brats_africa": {
+   "point": 0.0085,
+   "ci": [
+    -0.0107,
+    0.0271
+   ]
+  }
+ }
+}
