@@ -155,15 +155,21 @@ EVENTS = DRIVE_ROOT / "reports" / "ref_events.json"
 _EVENTS = None
 
 
-def event_location(num: str):
-    """The conference location, where the record carries one."""
+def event_details(num: str) -> tuple:
+    """The conference's location and dates, where the record carries them.
+
+    MDPI's form is "In Proceedings of the <name>, <city, country>, <date>";
+    the date is the meeting's, not the year of publication, so the year is
+    only a fallback for entries whose event record has no dates.
+    """
     global _EVENTS
     if _EVENTS is None:
         try:
             _EVENTS = json.loads(io.open(EVENTS, encoding="utf-8").read())
         except (OSError, ValueError):
             _EVENTS = {}
-    return (_EVENTS.get(num) or {}).get("location")
+    rec = _EVENTS.get(num) or {}
+    return rec.get("location"), rec.get("date")
 
 
 AUTHORS = DRIVE_ROOT / "reports" / "ref_authors.json"
@@ -279,10 +285,12 @@ def convert_reference(entry: str) -> str:
     pp = re.search(r"pp\.\s*([\d–—-]+)", tail)
     lead = venue if venue.lower().startswith("proceedings") else "Proceedings of " + venue
     out = num + ". " + authors + " " + title + ". In " + lead
-    where = event_location(num)
+    where, when = event_details(num)
     if where:
         out += ", " + where
-    if year:
+    if when:
+        out += ", " + when
+    elif year:
         out += ", " + year
     if pp:
         out += "; pp. " + pp.group(1)
