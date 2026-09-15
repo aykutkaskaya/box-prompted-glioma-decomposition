@@ -1,4 +1,4 @@
-# Diagnosing detector-stage degradation in box-prompted glioma segmentation: a three-arm evaluation across two external cohorts
+# Detector-stage failures in box-prompted glioma segmentation: a three-arm analysis across two external cohorts
 
 Analysis code and per-patient results for the manuscript. Everything reported in
 Methods and Results is derived from the files in `reports/` by the scripts in

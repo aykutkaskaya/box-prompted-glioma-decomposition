@@ -1,6 +1,6 @@
 {
   "upload_type": "software",
-  "title": "Analysis code and per-patient results for: Diagnosing detector-stage degradation in box-prompted glioma segmentation: a three-arm evaluation across two external cohorts",
+  "title": "Analysis code and per-patient results for: Detector-stage failures in box-prompted glioma segmentation: a three-arm analysis across two external cohorts",
   "description": "<p>Analysis code and per-patient results for a study that separates, by stage, where a box-prompted glioma segmentation pipeline loses accuracy on data from a new hospital. An oracle-box arm is added beside the deployable pipeline and a detector-free comparator, so the deficit decomposes into a detector-stage term and a residual.</p><p>Everything the manuscript reports in Methods and Results is derived from the per-patient result files included here by the released scripts; nothing was transcribed by hand. <code>audit_numbers.py</code> recomputes each value and, when the article text is present, checks it in both directions and exits non-zero if either fails.</p><p>Imaging (BraTS 2020, RHUH-GBM, BraTS-Africa), model checkpoints and detector weights are not redistributed; the README records where each is obtained. No credential is stored in this repository.</p>",
   "creators": [
     {
