@@ -8,7 +8,7 @@ Methods and Results is derived from the files in `reports/` by the scripts in
 
 ```
 src/backend/core/           volume loading, normalisation, metrics, segmenter wrappers
-src/backend/scripts/        evaluation, analysis, verification and figure scripts
+src/backend/scripts/        evaluation, analysis and verification scripts
 src/segmenters/             the MedSAM3 sidecar the detector-free arm runs through
 reports/validation/*.jsonl  per-patient results, one line per case per run
 reports/*.json              the compiled summaries the manuscript quotes
@@ -69,8 +69,7 @@ Save the article's text as `PAPER_DRAFT.md` at the repository root and the same
 script checks it automatically in both directions, exiting non-zero if either
 fails: that every recomputed value appears in the text, and that every decimal
 quoted in the abstract, introduction, discussion or limitations matches
-something computed in Methods or Results. `scripts/check_claims.py` then adds
-the claim-level and cross-reference checks.
+something computed in Methods or Results.
 
 The adapter-side split checks need `MEDSAM3_DIR` and are skipped without it.
 
